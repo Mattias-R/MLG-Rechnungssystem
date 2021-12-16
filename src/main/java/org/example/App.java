@@ -14,11 +14,13 @@ import java.io.IOException;
 public class App extends Application {
 
     private static Scene scene;
+    //private final double screenBoundHeight = Screen.getPrimary().getBounds().getHeight();
 //test test 2 test 3
     //Lukas
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("primary"), 640, 480);
+        scene = new Scene(loadFXML("primary"), 1280, 800);
+        stage.setMaximized(true);
         stage.setScene(scene);
         stage.show();
     }
