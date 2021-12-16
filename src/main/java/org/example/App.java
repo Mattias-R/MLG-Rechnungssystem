@@ -17,10 +17,14 @@ public class App extends Application {
     //private final double screenBoundHeight = Screen.getPrimary().getBounds().getHeight();
 //test test 2 test 3
     //Lukas
+
+    // set minimum window to 1280x800
     @Override
     public void start(Stage stage) throws IOException {
         scene = new Scene(loadFXML("primary"), 1280, 800);
         stage.setMaximized(true);
+        stage.setMinHeight(800);
+        stage.setMinWidth(1280);
         stage.setScene(scene);
         stage.show();
     }
