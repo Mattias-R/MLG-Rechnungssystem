@@ -18,6 +18,7 @@ public class App extends Application {
 //test test 2 test 3
     //Lukas
     //Mattiasstinkt
+    //Goran
     //mal zwi
     //lukassitnkt
     // set minimum window to 1280x800
