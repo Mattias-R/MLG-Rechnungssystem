@@ -17,7 +17,7 @@ public class App extends Application {
     //private final double screenBoundHeight = Screen.getPrimary().getBounds().getHeight();
 //test test 2 test 3
     //Lukas
-
+    //Mattiasstinkt
     // set minimum window to 1280x800
     @Override
     public void start(Stage stage) throws IOException {
