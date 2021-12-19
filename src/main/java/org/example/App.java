@@ -19,6 +19,7 @@ public class App extends Application {
     //Lukas
     //Mattiasstinkt
     //mal zwi
+    //lukassitnkt
     // set minimum window to 1280x800
     @Override
     public void start(Stage stage) throws IOException {
