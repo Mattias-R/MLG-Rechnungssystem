@@ -9,7 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
 
 
-public class SecondaryController {
+public class TischController {
     Scene scene = App.getScene();
     GridPane designerMattias;
     Button peter = new Button("hallo");
