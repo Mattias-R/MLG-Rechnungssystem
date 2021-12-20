@@ -4,7 +4,19 @@ import java.util.ArrayList;
 
 public class Chef extends Person{
 
-    public static ArrayList mitarbeiterliste;
+    public static ArrayList<Mitarbeiter> mitarbeiterliste;
+
+    private static Chef instance = null;
+
+    public static Chef getInstance(String name) {
+        if(instance == null) {
+            return new Chef(name);
+        } else return instance;
+    }
+
+    private Chef(String name) {
+        this.name = name;
+    }
 
     @Override
     public void abrechnung() {

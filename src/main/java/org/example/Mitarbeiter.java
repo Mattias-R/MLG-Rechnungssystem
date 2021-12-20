@@ -9,8 +9,8 @@ public class Mitarbeiter extends Person{
     public double tagesumsatz;
 
     public Mitarbeiter(String name, int mitarbeiternummer) {
-        name = this.name;
-        mitarbeiternummer = this.mitarbeiternummer;
+        this.name = name;
+        this.mitarbeiternummer = mitarbeiternummer;
     }
 
     @Override
