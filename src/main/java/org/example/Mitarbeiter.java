@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Mitarbeiter extends Person{
 
     public int mitarbeiternummer;
-    public ArrayList rechnungsliste;
+    public ArrayList<Rechnung> rechnungsliste;
     public double tagesumsatz;
 
     public Mitarbeiter(String name, int mitarbeiternummer) {
