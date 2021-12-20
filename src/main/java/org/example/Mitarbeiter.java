@@ -4,17 +4,17 @@ import java.util.ArrayList;
 
 public class Mitarbeiter extends Person{
 
-    public int mitarbeitenumer;
+    public int mitarbeiternummer;
     public ArrayList rechnungsliste;
     public double tagesumsatz;
 
-    public Mitarbeiter(String name, int mitarbeitenumer) {
+    public Mitarbeiter(String name, int mitarbeiternummer) {
         name = this.name;
-        mitarbeitenumer = this.mitarbeitenumer;
+        mitarbeiternummer = this.mitarbeiternummer;
     }
 
     @Override
-    public void Abrechnung() {
+    public void abrechnung() {
     }
 
 
