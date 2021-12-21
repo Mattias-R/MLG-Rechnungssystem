@@ -20,7 +20,6 @@ public class TischController {
     GridPane designerMattias;
     Button peter = new Button("hallo");
 
-
     public void test1 (){
         designerMattias = (GridPane) scene.lookup("#gridpanetable");
         designerMattias.add(peter,4,4);
