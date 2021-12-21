@@ -1,10 +1,10 @@
-package org.example;
+package org.controller;
 
 import javafx.fxml.FXML;
 
 import java.io.IOException;
 
-public class GetraenkeController {
+public class RechnungController {
 
     @FXML
     public void switchToSpeisen() throws IOException {
@@ -17,12 +17,6 @@ public class GetraenkeController {
     @FXML
     private void switchToSecondary() throws IOException {
         App.setRoot("tisch");
-        //hallo goran
-        //zweites
-    }
-    @FXML
-    private void switchToRechnung() throws IOException {
-        App.setRoot("rechnung");
         //hallo goran
         //zweites
     }

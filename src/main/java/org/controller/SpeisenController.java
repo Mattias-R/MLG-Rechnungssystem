@@ -1,12 +1,9 @@
-package org.example;
+package org.controller;
 
 import java.io.IOException;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.layout.GridPane;
 
 public class SpeisenController {
     Scene scene = App.getScene();

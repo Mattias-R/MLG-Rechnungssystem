@@ -1,4 +1,4 @@
-package org.example;
+package org.klassen;
 
 public class Getraenke extends Artikel {
 
