@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class Tisch {
 
+    public static String ausgewaehlterTisch;
     public int tischnummer;
     public ArrayList<Artikel> konsumation;
 

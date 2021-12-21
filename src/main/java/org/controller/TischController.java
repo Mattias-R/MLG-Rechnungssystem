@@ -36,12 +36,12 @@ public class TischController {
     @FXML
     private void switchToSecondary() throws IOException {
         App.setRoot("tisch");
-        //hallo goran
-        //zweites
     }
 
     public void test2(ActionEvent actionEvent) {
     designerMattias.getChildren().remove(peter);
 
     }
+
+
 }
