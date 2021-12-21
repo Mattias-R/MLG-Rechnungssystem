@@ -17,31 +17,31 @@ public class TischController {
     Scene scene = App.getScene();
     GridPane designerMattias;
     Button peter = new Button("hallo");
-    public Button Tisch1;
-    public Button Tisch2;
-    public Button Tisch3;
-    public Button Tisch4;
-    public Button Tisch5;
-    public Button Tisch6;
-    public Button Tisch7;
-    public Button Tisch8;
-    public Button Tisch9;
-    public Button Tisch10;
-    public Button Tisch11;
-    public Button Tisch12;
-    public Button Tisch13;
-    public Button Tisch14;
-    public Button Tisch15;
-    public Button Tisch16;
-    public Button Tisch17;
-    public Button Tisch18;
-    public Button Tisch19;
-    public Button Tisch20;
-    public Button Tisch21;
-    public Button Tisch22;
-    public Button Tisch23;
-    public Button Tisch24;
-    public Button Tisch25;
+    public static Button Tisch1;
+    public static Button Tisch2;
+    public static Button Tisch3;
+    public static Button Tisch4;
+    public static Button Tisch5;
+    public static Button Tisch6;
+    public static Button Tisch7;
+    public static Button Tisch8;
+    public static Button Tisch9;
+    public static Button Tisch10;
+    public static Button Tisch11;
+    public static Button Tisch12;
+    public static Button Tisch13;
+    public static Button Tisch14;
+    public static Button Tisch15;
+    public static Button Tisch16;
+    public static Button Tisch17;
+    public static Button Tisch18;
+    public static Button Tisch19;
+    public static Button Tisch20;
+    public static Button Tisch21;
+    public static Button Tisch22;
+    public static Button Tisch23;
+    public static Button Tisch24;
+    public static Button Tisch25;
 
 
     public void test1 (){
@@ -73,12 +73,17 @@ public class TischController {
 
     }
 
-    public void selectTableNumber(){
 
+    public void selectTableNumber(){
+        System.out.println();
+        /*
         for(Button button : Arrays.asList(Tisch1, Tisch2, Tisch3,Tisch4,Tisch5,Tisch6,Tisch7,Tisch8,Tisch9,Tisch10,Tisch11,Tisch12,Tisch13,Tisch14,Tisch15,Tisch16,Tisch17,Tisch18,Tisch19,Tisch20,Tisch21,Tisch22,Tisch23,Tisch24,Tisch25)){
             Tisch.ausgewaehlterTisch = button.getText().substring(3);
         }
+
+ */
         System.out.println(Tisch.ausgewaehlterTisch);
     }
+
 
 }
