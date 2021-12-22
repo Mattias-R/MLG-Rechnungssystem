@@ -227,7 +227,7 @@
                      <children>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
                            <children>
-                              <Text layoutX="77.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Speisen" AnchorPane.bottomAnchor="5.98828125" AnchorPane.leftAnchor="77.0" AnchorPane.rightAnchor="77.23046875" AnchorPane.topAnchor="5.05078125" />
+                              <Text layoutX="77.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Speisen/Getränke" AnchorPane.bottomAnchor="5.98828125" AnchorPane.leftAnchor="77.0" AnchorPane.rightAnchor="77.23046875" AnchorPane.topAnchor="5.05078125" />
                            </children>
                         </AnchorPane>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0">
@@ -242,7 +242,7 @@
                         </AnchorPane>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <children>
-                              <TextField disable="true" layoutX="23.0" layoutY="2.0" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0" />
+                              <TextField fx:id="speisenEingabe" disable="true" layoutX="23.0" layoutY="2.0" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0" />
                            </children>
                         </AnchorPane>
                      </children>

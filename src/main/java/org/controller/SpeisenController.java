@@ -19,7 +19,7 @@ public class SpeisenController {
     Scene scene = App.getScene();
     public TextField speisenTableID;
     public GridPane speisenGrid;
-    public AnchorPane zentrierFeld;
+    public TextField speisenEingabe;
 
     public void initialize(){
         //set tableID to Tablenumber
@@ -41,6 +41,7 @@ public class SpeisenController {
                     button.setOnAction(new EventHandler<ActionEvent>() {
                         @Override
                         public void handle(ActionEvent actionEvent) {
+                            speisenEingabe.setText(button.getText());
                             System.out.println(button.getText());
                         }
                     });
@@ -109,6 +110,7 @@ public class SpeisenController {
                     button.setOnAction(new EventHandler<ActionEvent>() {
                         @Override
                         public void handle(ActionEvent actionEvent) {
+                            speisenEingabe.setText(button.getText());
                             System.out.println(button.getText());
                         }
                     });
@@ -178,6 +180,7 @@ public class SpeisenController {
                     button.setOnAction(new EventHandler<ActionEvent>() {
                         @Override
                         public void handle(ActionEvent actionEvent) {
+                            speisenEingabe.setText(button.getText());
                             System.out.println(button.getText());
                         }
                     });
@@ -247,6 +250,7 @@ public class SpeisenController {
                     button.setOnAction(new EventHandler<ActionEvent>() {
                         @Override
                         public void handle(ActionEvent actionEvent) {
+                            speisenEingabe.setText(button.getText());
                             System.out.println(button.getText());
                         }
                     });

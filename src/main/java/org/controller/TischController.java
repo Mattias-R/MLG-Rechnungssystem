@@ -39,11 +39,21 @@ public class TischController {
     }
     @FXML
     public void switchToSpeisen() throws IOException{
+        if (tableID.getText() != ""){
             App.setRoot("speisen");
+            System.out.println(tableID.getText());
+        }else{
+            System.out.println("Wählen sie einen Tisch aus");
+        }
+
     }
     @FXML
     public void switchToGetraenke() throws IOException{
-        App.setRoot("getraenke");
+        if (tableID.getText() != ""){
+            App.setRoot("getraenke");
+        }else{
+            System.out.println("Wählen sie einen Tisch aus");
+        }
     }
 
     @FXML
