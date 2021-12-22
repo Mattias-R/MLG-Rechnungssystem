@@ -1,10 +1,19 @@
 package org.controller;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.TextField;
+import org.klassen.Tisch;
 
 import java.io.IOException;
 
 public class GetraenkeController {
+    public TextField getraenkeTischID;
+
+
+    public void initialize(){
+        getraenkeTischID.setText(Tisch.ausgewaehlterTisch);
+    }
+
 
     @FXML
     public void switchToSpeisen() throws IOException {
