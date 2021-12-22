@@ -1,18 +1,288 @@
 package org.controller;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.geometry.Pos;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 import org.klassen.Tisch;
 
 import java.io.IOException;
 
 public class GetraenkeController {
     public TextField getraenkeTischID;
+    public GridPane getraenkeGrid;
 
 
     public void initialize(){
         getraenkeTischID.setText(Tisch.ausgewaehlterTisch);
+
+        int counter = 0;
+        for(int i = 0; i <= 6; i++){
+            for(int y = 0; y < 4; y++){
+                //create AnchorPane and Buttons
+                AnchorPane zentrierFeld = new AnchorPane();
+                Button button = new Button();
+
+
+                try {
+                    //set button text
+                    int param = App.alkoholfreiListe.get(counter).toString().indexOf(";");
+                    button.setText(App.alkoholfreiListe.get(counter).toString().replace(".", " ").substring(0, param));
+
+                    //button functions
+                    button.setOnAction(new EventHandler<ActionEvent>() {
+                        @Override
+                        public void handle(ActionEvent actionEvent) {
+                            System.out.println(button.getText());
+                        }
+                    });
+
+                    //poistion hierarchy
+                    button.setMinSize(156,120);
+                    VBox gridbox = new VBox();
+                    getraenkeGrid.add(gridbox,y,i);
+                    gridbox.getChildren().add(zentrierFeld);
+                    zentrierFeld.getChildren().add(button);
+
+                    if(i == 0){
+                        gridbox.setAlignment(Pos.CENTER);
+                    }else{
+                        gridbox.setAlignment(Pos.TOP_CENTER);
+                    }
+
+                    // Centralized buttons in grid
+                    zentrierFeld.setBottomAnchor(button, 10.);
+                    zentrierFeld.setLeftAnchor(button, 10.);
+                    zentrierFeld.setRightAnchor(button, 10.);
+                    zentrierFeld.setTopAnchor(button, 10.);
+                    getraenkeGrid.setAlignment(Pos.CENTER);
+
+
+                } catch(Exception e){
+                    System.out.println(e);
+                }
+
+                counter++;
+            }
+
+        }
+
     }
+
+
+
+    public void displayNichtAlkohol(){
+        int counter = 0;
+        for(int i = 0; i <= 6; i++) {
+            for (int y = 0; y < 4; y++) {
+                try{
+                    System.out.println(y + "" + i);
+                    getraenkeGrid.getChildren().clear();
+                    // speisenGrid.getChildren().remove(i,y);
+                }catch (Exception e) {
+
+                    System.out.println(e);
+                    System.out.println(y + "hi" + i);
+                }
+
+            }
+        }
+
+        for(int i = 0; i <= 6; i++){
+            for(int y = 0; y < 4; y++){
+                //create AnchorPane and Buttons
+                AnchorPane zentrierFeld = new AnchorPane();
+                Button button = new Button();
+
+
+                try {
+                    //set button text
+                    int param = App.alkoholfreiListe.get(counter).toString().indexOf(";");
+                    button.setText(App.alkoholfreiListe.get(counter).toString().replace(".", " ").substring(0, param));
+
+                    //button functions
+                    button.setOnAction(new EventHandler<ActionEvent>() {
+                        @Override
+                        public void handle(ActionEvent actionEvent) {
+                            System.out.println(button.getText());
+                        }
+                    });
+
+                    //poistion hierarchy
+                    button.setMinSize(156,120);
+                    VBox gridbox = new VBox();
+                    getraenkeGrid.add(gridbox,y,i);
+                    gridbox.getChildren().add(zentrierFeld);
+                    zentrierFeld.getChildren().add(button);
+
+                    if(i == 0){
+                        gridbox.setAlignment(Pos.CENTER);
+                    }else{
+                        gridbox.setAlignment(Pos.TOP_CENTER);
+                    }
+
+                    // Centralized buttons in grid
+                    zentrierFeld.setBottomAnchor(button, 10.);
+                    zentrierFeld.setLeftAnchor(button, 10.);
+                    zentrierFeld.setRightAnchor(button, 10.);
+                    zentrierFeld.setTopAnchor(button, 10.);
+                    getraenkeGrid.setAlignment(Pos.CENTER);
+
+
+                } catch(Exception e){
+                    System.out.println(e);
+                }
+
+                counter++;
+            }
+
+
+        }
+    }
+
+    public void displayAlkohol(){
+        int counter = 0;
+        for(int i = 0; i <= 6; i++) {
+            for (int y = 0; y < 4; y++) {
+                try{
+                    System.out.println(y + "" + i);
+                    getraenkeGrid.getChildren().clear();
+                    // speisenGrid.getChildren().remove(i,y);
+                }catch (Exception e) {
+
+                    System.out.println(e);
+                    System.out.println(y + "hi" + i);
+                }
+
+            }
+        }
+
+        for(int i = 0; i <= 6; i++){
+            for(int y = 0; y < 4; y++){
+                //create AnchorPane and Buttons
+                AnchorPane zentrierFeld = new AnchorPane();
+                Button button = new Button();
+
+
+                try {
+                    //set button text
+                    int param = App.alkoholListe.get(counter).toString().indexOf(";");
+                    button.setText(App.alkoholListe.get(counter).toString().replace(".", " ").substring(0, param));
+
+                    //button functions
+                    button.setOnAction(new EventHandler<ActionEvent>() {
+                        @Override
+                        public void handle(ActionEvent actionEvent) {
+                            System.out.println(button.getText());
+                        }
+                    });
+
+                    //poistion hierarchy
+                    button.setMinSize(156,120);
+                    VBox gridbox = new VBox();
+                    getraenkeGrid.add(gridbox,y,i);
+                    gridbox.getChildren().add(zentrierFeld);
+                    zentrierFeld.getChildren().add(button);
+
+                    if(i == 0){
+                        gridbox.setAlignment(Pos.CENTER);
+                    }else{
+                        gridbox.setAlignment(Pos.TOP_CENTER);
+                    }
+
+                    // Centralized buttons in grid
+                    zentrierFeld.setBottomAnchor(button, 10.);
+                    zentrierFeld.setLeftAnchor(button, 10.);
+                    zentrierFeld.setRightAnchor(button, 10.);
+                    zentrierFeld.setTopAnchor(button, 10.);
+                    getraenkeGrid.setAlignment(Pos.CENTER);
+
+
+                } catch(Exception e){
+                    System.out.println(e);
+                }
+
+                counter++;
+            }
+
+
+        }
+    }
+
+    public void displayKaffee(){
+        int counter = 0;
+        for(int i = 0; i <= 6; i++) {
+            for (int y = 0; y < 4; y++) {
+                try{
+                    System.out.println(y + "" + i);
+                    getraenkeGrid.getChildren().clear();
+                    // speisenGrid.getChildren().remove(i,y);
+                }catch (Exception e) {
+
+                    System.out.println(e);
+                    System.out.println(y + "hi" + i);
+                }
+
+            }
+        }
+
+        for(int i = 0; i <= 6; i++){
+            for(int y = 0; y < 4; y++){
+                //create AnchorPane and Buttons
+                AnchorPane zentrierFeld = new AnchorPane();
+                Button button = new Button();
+
+
+                try {
+                    //set button text
+                    int param = App.kaffeeListe.get(counter).toString().indexOf(";");
+                    button.setText(App.kaffeeListe.get(counter).toString().replace(".", " ").substring(0, param));
+
+                    //button functions
+                    button.setOnAction(new EventHandler<ActionEvent>() {
+                        @Override
+                        public void handle(ActionEvent actionEvent) {
+                            System.out.println(button.getText());
+                        }
+                    });
+
+                    //poistion hierarchy
+                    button.setMinSize(156,120);
+                    VBox gridbox = new VBox();
+                    getraenkeGrid.add(gridbox,y,i);
+                    gridbox.getChildren().add(zentrierFeld);
+                    zentrierFeld.getChildren().add(button);
+
+                    if(i == 0){
+                        gridbox.setAlignment(Pos.CENTER);
+                    }else{
+                        gridbox.setAlignment(Pos.TOP_CENTER);
+                    }
+
+                    // Centralized buttons in grid
+                    zentrierFeld.setBottomAnchor(button, 10.);
+                    zentrierFeld.setLeftAnchor(button, 10.);
+                    zentrierFeld.setRightAnchor(button, 10.);
+                    zentrierFeld.setTopAnchor(button, 10.);
+                    getraenkeGrid.setAlignment(Pos.CENTER);
+
+
+                } catch(Exception e){
+                    System.out.println(e);
+                }
+
+                counter++;
+            }
+
+
+        }
+    }
+
 
 
     @FXML

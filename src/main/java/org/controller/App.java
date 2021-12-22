@@ -25,6 +25,9 @@ public class App extends Application {
     public static ArrayList hauptspeisenListe = new ArrayList();
     public static ArrayList vorspeisenListe = new ArrayList();
     public static ArrayList nachspeisenListe = new ArrayList();
+    public static ArrayList alkoholfreiListe = new ArrayList();
+    public static ArrayList alkoholListe = new ArrayList();
+    public static ArrayList kaffeeListe = new ArrayList();
     private static Scene scene;
 
     // set minimum window to 1440x1080
@@ -76,6 +79,42 @@ public class App extends Application {
             e.printStackTrace();
         }
         System.out.println(vorspeisenListe);
+        try (Scanner scanner = new Scanner(new File("src/main/resources/org.textfiles/Nachspeisen.txt"))) {
+            while (scanner.hasNext()){
+                nachspeisenListe.add(scanner.next());
+                //System.out.println(scanner.next());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        System.out.println(nachspeisenListe);
+        try (Scanner scanner = new Scanner(new File("src/main/resources/org.textfiles/Alkoholfrei.txt"))) {
+            while (scanner.hasNext()){
+                alkoholfreiListe.add(scanner.next());
+                //System.out.println(scanner.next());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        System.out.println(alkoholListe);
+        try (Scanner scanner = new Scanner(new File("src/main/resources/org.textfiles/Alkoholisch.txt"))) {
+            while (scanner.hasNext()){
+                alkoholListe.add(scanner.next());
+                //System.out.println(scanner.next());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        System.out.println(alkoholfreiListe);
+        try (Scanner scanner = new Scanner(new File("src/main/resources/org.textfiles/Kaffee.txt"))) {
+            while (scanner.hasNext()){
+                kaffeeListe.add(scanner.next());
+                //System.out.println(scanner.next());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        System.out.println(kaffeeListe);
     }
 
 }

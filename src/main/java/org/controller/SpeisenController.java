@@ -146,10 +146,141 @@ public class SpeisenController {
     }
 
     public void displayHauptspeise() {
+        int counter = 0;
+        for(int i = 0; i <= 6; i++) {
+            for (int y = 0; y < 4; y++) {
+                try{
+                    System.out.println(y + "" + i);
+                    speisenGrid.getChildren().clear();
+                    // speisenGrid.getChildren().remove(i,y);
+                }catch (Exception e) {
 
+                    System.out.println(e);
+                    System.out.println(y + "hi" + i);
+                }
+
+            }
+        }
+
+        for(int i = 0; i <= 6; i++){
+            for(int y = 0; y < 4; y++){
+                //create AnchorPane and Buttons
+                AnchorPane zentrierFeld = new AnchorPane();
+                Button button = new Button();
+
+
+                try {
+                    //set button text
+                    int param = App.hauptspeisenListe.get(counter).toString().indexOf(";");
+                    button.setText(App.hauptspeisenListe.get(counter).toString().replace(".", " ").substring(0, param));
+
+                    //button functions
+                    button.setOnAction(new EventHandler<ActionEvent>() {
+                        @Override
+                        public void handle(ActionEvent actionEvent) {
+                            System.out.println(button.getText());
+                        }
+                    });
+
+                    //poistion hierarchy
+                    button.setMinSize(156,120);
+                    VBox gridbox = new VBox();
+                    speisenGrid.add(gridbox,y,i);
+                    gridbox.getChildren().add(zentrierFeld);
+                    zentrierFeld.getChildren().add(button);
+
+                    if(i == 0){
+                        gridbox.setAlignment(Pos.CENTER);
+                    }else{
+                        gridbox.setAlignment(Pos.TOP_CENTER);
+                    }
+
+                    // Centralized buttons in grid
+                    zentrierFeld.setBottomAnchor(button, 10.);
+                    zentrierFeld.setLeftAnchor(button, 10.);
+                    zentrierFeld.setRightAnchor(button, 10.);
+                    zentrierFeld.setTopAnchor(button, 10.);
+                    speisenGrid.setAlignment(Pos.CENTER);
+
+
+                } catch(Exception e){
+                    System.out.println(e);
+                }
+
+                counter++;
+            }
+
+
+        }
     }
-    public void displayNachspeise() {
 
+    public void displayNachspeise() {
+        int counter = 0;
+        for(int i = 0; i <= 6; i++) {
+            for (int y = 0; y < 4; y++) {
+                try{
+                    System.out.println(y + "" + i);
+                    speisenGrid.getChildren().clear();
+                    // speisenGrid.getChildren().remove(i,y);
+                }catch (Exception e) {
+
+                    System.out.println(e);
+                    System.out.println(y + "hi" + i);
+                }
+
+            }
+        }
+
+        for(int i = 0; i <= 6; i++){
+            for(int y = 0; y < 4; y++){
+                //create AnchorPane and Buttons
+                AnchorPane zentrierFeld = new AnchorPane();
+                Button button = new Button();
+
+
+                try {
+                    //set button text
+                    int param = App.nachspeisenListe.get(counter).toString().indexOf(";");
+                    button.setText(App.nachspeisenListe.get(counter).toString().replace(".", " ").substring(0, param));
+
+                    //button functions
+                    button.setOnAction(new EventHandler<ActionEvent>() {
+                        @Override
+                        public void handle(ActionEvent actionEvent) {
+                            System.out.println(button.getText());
+                        }
+                    });
+
+                    //poistion hierarchy
+                    button.setMinSize(156,120);
+                    VBox gridbox = new VBox();
+                    speisenGrid.add(gridbox,y,i);
+                    gridbox.getChildren().add(zentrierFeld);
+                    zentrierFeld.getChildren().add(button);
+
+                    if(i == 0){
+                        gridbox.setAlignment(Pos.CENTER);
+                    }else{
+                        gridbox.setAlignment(Pos.TOP_CENTER);
+                    }
+
+                    // Centralized buttons in grid
+                    zentrierFeld.setBottomAnchor(button, 10.);
+                    zentrierFeld.setLeftAnchor(button, 10.);
+                    zentrierFeld.setRightAnchor(button, 10.);
+                    zentrierFeld.setTopAnchor(button, 10.);
+                    speisenGrid.setAlignment(Pos.CENTER);
+
+
+                } catch(Exception e){
+                    System.out.println(e);
+                }
+
+                counter++;
+            }
+
+
+        }
     }
 
     @FXML
