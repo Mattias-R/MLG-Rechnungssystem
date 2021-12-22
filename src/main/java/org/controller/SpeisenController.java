@@ -34,7 +34,7 @@ public class SpeisenController {
 
                 try {
                     //set button text
-                    button.setText(TischController.arr.get(counter).toString());
+                    button.setText(App.arr.get(counter).toString());
 
                     //button functions
                     button.setOnAction(new EventHandler<ActionEvent>() {

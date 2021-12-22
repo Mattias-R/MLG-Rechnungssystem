@@ -11,14 +11,18 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import org.klassen.Tisch;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Scanner;
 
 /**
  * JavaFX App
  */
 public class App extends Application {
-
+    public static ArrayList arr = new ArrayList();
     private static Scene scene;
 
     // set minimum window to 1440x1080
@@ -29,7 +33,9 @@ public class App extends Application {
         stage.setMinHeight(1080);
         stage.setMinWidth(1440);
         stage.setScene(scene);
+        loadFood();
         stage.show();
+
     }
 
     public static Scene getScene() {
@@ -47,6 +53,18 @@ public class App extends Application {
 
     public static void main(String[] args) {
         launch();
+    }
+
+    public static void loadFood(){
+        try (Scanner scanner = new Scanner(new File("src/main/resources/org.textfiles/Hauptspeisen.txt"))) {
+            while (scanner.hasNext()){
+                arr.add(scanner.next());
+                System.out.println(scanner.next());
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        System.out.println(arr);
     }
 
 }
