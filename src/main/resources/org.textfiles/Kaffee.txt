@@ -1,0 +1,8 @@
+Kleiner.Mocca;2,50;0,1;false
+Kleiner.Brauner;2,50;0,1;false
+Großer.Mocca;3,90;0,2;false
+Großer.Brauner;3,90;0,2;false
+Verlängerter;3,40;0,2;false
+Melange;3,40;0,2;false
+Kaffee.mit.Schlag;3,90;0,2;false
+Kaffee.Latte;3,60;0,2;false

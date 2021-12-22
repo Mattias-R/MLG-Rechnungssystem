@@ -1,0 +1,5 @@
+Frittatensuppe;4,90
+Leberknödelsuppe;4,90
+Knoblauchcremesuppe;5,90
+Beef.tatar;12,90
+Mozzarella;8,90

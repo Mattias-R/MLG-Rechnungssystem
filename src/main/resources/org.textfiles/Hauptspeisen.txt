@@ -1,13 +1,16 @@
 Rindsgulasch;10,90
 Jägerpfandl;13,90
-Wiener Schnitzel;18,90
-Schweins Schitzel;12,90
-Hühner Schnitzel;13,90
+Wiener.Schnitzel;18,90
+Schweins.Schitzel;12,90
+Hühner.Schnitzel;13,90
 Saltimbocca;15,90
-Spare Ribs 1 Reihe;12,90
-Spare Ribs 2 Reihen;17,90
+Spare.Ribs.1.Reihe;12,90
+Spare.Ribs.2.Reihen;17,90
 Lachs;17,90
-Geb. Kabeljau;17,90
-Geb. Emmentaler;10,90
-Eiernockerl;10,90
-Käsespätzle;11,90
+Gebackener.Kabeljau;17,90
+Gebackener.Emmentaler;10,90
+Eiernockerl;9,90
+Käsespätzle;10,90
+Backhendlsalat;11,90
+Hühnerstreifensalat;11,90
+
