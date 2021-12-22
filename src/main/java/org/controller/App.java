@@ -22,7 +22,9 @@ import java.util.Scanner;
  * JavaFX App
  */
 public class App extends Application {
-    public static ArrayList arr = new ArrayList();
+    public static ArrayList hauptspeisenListe = new ArrayList();
+    public static ArrayList vorspeisenListe = new ArrayList();
+    public static ArrayList nachspeisenListe = new ArrayList();
     private static Scene scene;
 
     // set minimum window to 1440x1080
@@ -58,13 +60,22 @@ public class App extends Application {
     public static void loadFood(){
         try (Scanner scanner = new Scanner(new File("src/main/resources/org.textfiles/Hauptspeisen.txt"))) {
             while (scanner.hasNext()){
-                arr.add(scanner.next());
+                hauptspeisenListe.add(scanner.next());
                 //System.out.println(scanner.next());
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        System.out.println(arr);
+        System.out.println(vorspeisenListe);
+        try (Scanner scanner = new Scanner(new File("src/main/resources/org.textfiles/Vorspeisen.txt"))) {
+            while (scanner.hasNext()){
+                vorspeisenListe.add(scanner.next());
+                //System.out.println(scanner.next());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        System.out.println(vorspeisenListe);
     }
 
 }
