@@ -28,7 +28,7 @@ public class TischController {
 
     public void initialize(){
         tableID.setText(Tisch.ausgewaehlterTisch);
-        try (Scanner scanner = new Scanner(new File("src/main/resources/org/controller/EasyList.txt"))) {
+        try (Scanner scanner = new Scanner(new File("src/main/resources/org.textfiles/Hauptspeisen.txt"))) {
 
             while (scanner.hasNext())
                 System.out.println(scanner.next());
@@ -69,12 +69,8 @@ public class TischController {
 
 
     public void selectTableNumber(Event event){
-        System.out.println();
         Tisch.ausgewaehlterTisch = ((Control)event.getSource()).getId().substring(5);
         tableID.setText(Tisch.ausgewaehlterTisch);
-        System.out.println(Tisch.ausgewaehlterTisch);
-
     }
-
 
 }
