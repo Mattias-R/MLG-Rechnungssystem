@@ -1,8 +1,11 @@
 package org.controller;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.Arrays;
+import java.util.Scanner;
 
 import javafx.event.ActionEvent;
 import javafx.event.Event;
@@ -25,7 +28,16 @@ public class TischController {
 
     public void initialize(){
         tableID.setText(Tisch.ausgewaehlterTisch);
+        try (Scanner scanner = new Scanner(new File("src/main/resources/org/controller/EasyList.txt"))) {
+
+            while (scanner.hasNext())
+                System.out.println(scanner.next());
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
     }
+
 
     public void test1 (){
         designerMattias = (GridPane) scene.lookup("#gridpanetable");
