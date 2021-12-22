@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -25,17 +26,22 @@ public class TischController {
     GridPane designerMattias;
     Button peter = new Button("hallo");
     public TextField tableID;
+    public static ArrayList arr = new ArrayList();
 
     public void initialize(){
         tableID.setText(Tisch.ausgewaehlterTisch);
         try (Scanner scanner = new Scanner(new File("src/main/resources/org.textfiles/Hauptspeisen.txt"))) {
 
-            while (scanner.hasNext())
+            while (scanner.hasNext()){
+                arr.add(scanner.next());
                 System.out.println(scanner.next());
+            }
+
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
+        System.out.println(arr);
     }
 
 

@@ -2,6 +2,8 @@ package org.controller;
 
 import java.io.IOException;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -20,35 +22,56 @@ public class SpeisenController {
     public AnchorPane zentrierFeld;
 
     public void initialize(){
+        //set tableID to Tablenumber
         speisenTableID.setText(Tisch.ausgewaehlterTisch);
-
-        //speisenGrid.setStyle("-fx-background-color: black");
-        for(int i = 0; i < 4; i++){
-            for(int y = 0; y < 6; y++){
+        int counter = 0;
+        for(int i = 0; i < 6; i++){
+            for(int y = 0; y < 4; y++){
+                //create AnchorPane and Buttons
                 AnchorPane zentrierFeld = new AnchorPane();
                 Button button = new Button();
-                button.setText("i: " +i + " y: " + y);
-                //button.setAlignment(Pos.CENTER);
-                button.setMinSize(156,120);
-                //button.setMinHeight(120);
-                //button.setMinWidth(156);
-                VBox gridbox = new VBox();
-                if(y == 0){
-                    gridbox.setAlignment(Pos.CENTER);
-                    gridbox.setStyle("-fx-background-color: black");
-                }else{
-                    gridbox.setAlignment(Pos.TOP_CENTER);
-                    gridbox.setStyle("-fx-background-color: green");
+
+
+                try {
+                    //set button text
+                    button.setText(TischController.arr.get(counter).toString());
+
+                    //button functions
+                    button.setOnAction(new EventHandler<ActionEvent>() {
+                        @Override
+                        public void handle(ActionEvent actionEvent) {
+                            System.out.println(button.getText());
+                        }
+                    });
+
+                    //poistion hierarchy
+                    button.setMinSize(156,120);
+                    VBox gridbox = new VBox();
+                    speisenGrid.add(gridbox,y,i);
+                    gridbox.getChildren().add(zentrierFeld);
+                    zentrierFeld.getChildren().add(button);
+
+                    if(i == 0){
+                        gridbox.setAlignment(Pos.CENTER);
+                    }else{
+                        gridbox.setAlignment(Pos.TOP_CENTER);
+                    }
+
+                    // Centralized buttons in grid
+                    zentrierFeld.setBottomAnchor(button, 10.);
+                    zentrierFeld.setLeftAnchor(button, 10.);
+                    zentrierFeld.setRightAnchor(button, 10.);
+                    zentrierFeld.setTopAnchor(button, 10.);
+                    speisenGrid.setAlignment(Pos.CENTER);
+
+
+                } catch(Exception e){
+                    System.out.println(e);
                 }
-                speisenGrid.add(gridbox,i,y);
-                gridbox.getChildren().add(zentrierFeld);
-                zentrierFeld.getChildren().add(button);
-                zentrierFeld.setBottomAnchor(button, 10.);
-                zentrierFeld.setLeftAnchor(button, 10.);
-                zentrierFeld.setRightAnchor(button, 10.);
-                zentrierFeld.setTopAnchor(button, 10.);
-                speisenGrid.setAlignment(Pos.CENTER);
+
+                counter++;
             }
+            counter++;
         }
     }
 
