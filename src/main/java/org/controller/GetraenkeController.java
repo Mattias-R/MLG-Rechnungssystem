@@ -1,10 +1,12 @@
 package org.controller;
 
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
+import javafx.scene.control.Control;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
@@ -16,7 +18,8 @@ import java.io.IOException;
 public class GetraenkeController {
     public TextField getraenkeTischID;
     public GridPane getraenkeGrid;
-
+    public TextField getraenkeAnzahl;
+    public TextField getraenkeEingabe;
 
     public void initialize(){
         getraenkeTischID.setText(Tisch.ausgewaehlterTisch);
@@ -38,6 +41,7 @@ public class GetraenkeController {
                     button.setOnAction(new EventHandler<ActionEvent>() {
                         @Override
                         public void handle(ActionEvent actionEvent) {
+                            getraenkeEingabe.setText(button.getText());
                             System.out.println(button.getText());
                         }
                     });
@@ -109,6 +113,7 @@ public class GetraenkeController {
                     button.setOnAction(new EventHandler<ActionEvent>() {
                         @Override
                         public void handle(ActionEvent actionEvent) {
+                            getraenkeEingabe.setText(button.getText());
                             System.out.println(button.getText());
                         }
                     });
@@ -178,6 +183,7 @@ public class GetraenkeController {
                     button.setOnAction(new EventHandler<ActionEvent>() {
                         @Override
                         public void handle(ActionEvent actionEvent) {
+                            getraenkeEingabe.setText(button.getText());
                             System.out.println(button.getText());
                         }
                     });
@@ -247,6 +253,7 @@ public class GetraenkeController {
                     button.setOnAction(new EventHandler<ActionEvent>() {
                         @Override
                         public void handle(ActionEvent actionEvent) {
+                            getraenkeEingabe.setText(button.getText());
                             System.out.println(button.getText());
                         }
                     });
@@ -305,5 +312,10 @@ public class GetraenkeController {
         //hallo goran
         //zweites
     }
+
+    public void selectQuantityGetraenke(Event event){
+        getraenkeAnzahl.setText(((Control)event.getSource()).getId().substring(3));
+    }
+
 
 }

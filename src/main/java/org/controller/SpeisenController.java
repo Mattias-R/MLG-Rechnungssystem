@@ -3,11 +3,13 @@ package org.controller;
 import java.io.IOException;
 
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Control;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
@@ -20,6 +22,7 @@ public class SpeisenController {
     public TextField speisenTableID;
     public GridPane speisenGrid;
     public TextField speisenEingabe;
+    public TextField speisenAnzahl;
 
     public void initialize(){
         //set tableID to Tablenumber
@@ -307,4 +310,9 @@ public class SpeisenController {
         //hallo goran
         //zweites
     }
+
+    public void selectQuantitySpeisen(Event event){
+        speisenAnzahl.setText(((Control)event.getSource()).getId().substring(6));
+    }
+
 }
