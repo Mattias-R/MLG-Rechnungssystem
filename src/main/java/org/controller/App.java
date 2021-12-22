@@ -59,9 +59,9 @@ public class App extends Application {
         try (Scanner scanner = new Scanner(new File("src/main/resources/org.textfiles/Hauptspeisen.txt"))) {
             while (scanner.hasNext()){
                 arr.add(scanner.next());
-                System.out.println(scanner.next());
+                //System.out.println(scanner.next());
             }
-        } catch (FileNotFoundException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         System.out.println(arr);

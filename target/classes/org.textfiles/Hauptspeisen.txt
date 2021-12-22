@@ -9,5 +9,8 @@ Spare.Ribs.2.Reihen;17,90
 Lachs;17,90
 Gebackener.Kabeljau;17,90
 Gebackener.Emmentaler;10,90
-Eiernockerl;10,90
-Käsespätzle;11,90
+Eiernockerl;9,90
+Käsespätzle;10,90
+Backhendlsalat;11,90
+Hühnerstreifensalat;11,90
+

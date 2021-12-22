@@ -1,0 +1,4 @@
+Schokokuchen;6,90
+Palatschinken;4,90
+Tiramisu;4,90
+gemischtes.Eis;4,90
