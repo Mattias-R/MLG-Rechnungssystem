@@ -10,6 +10,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Control;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
@@ -25,6 +26,7 @@ public class SpeisenController {
     public GridPane speisenGrid;
     public TextField speisenEingabe;
     public TextField speisenAnzahl;
+    public TableView speisenAnzeigeTafel;
 
     public void initialize(){
         //set tableID to Tablenumber
@@ -274,7 +276,7 @@ public class SpeisenController {
                                     System.out.println("!!!!");
                                     for(Speisen speise : Speisen.speisenListe){
                                         if(button.getText().equals(speise.name)){
-                                            tisch.speiseHinzufuegen(speise);
+                                          //  tisch.speiseHinzufuegen(speise, a);
                                             tisch.showKonsumation();
                                             System.out.println(speise.name + " !!!");
                                         }
@@ -347,10 +349,19 @@ public class SpeisenController {
 
     }
 
-    public void speisenZuTischHinzufuegen(){
-
+    public void speisenZuTischHinzufuegen() {
+       // int anzahl = Integer.parseInt(speisenAnzahl.getText());
+        for (Tisch tisch : Tisch.tischListe) {
+            if (tisch.tischnummer == Integer.parseInt(Tisch.ausgewaehlterTisch)) {
+                for (Speisen speise : Speisen.speisenListe) {
+                    if (speisenEingabe.getText().equals(speise.name)) {
+                        tisch.speiseHinzufuegen(speise);
+                        tisch.showKonsumation();
+                    }
+                }
+            }
+        }
     }
-
     public TextField getSpeisenEingabe() {
         return speisenEingabe;
     }

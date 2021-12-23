@@ -1,5 +1,7 @@
 package org.klassen;
 
+import org.controller.SpeisenController;
+
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Objects;
@@ -49,8 +51,11 @@ public class Tisch {
        }
     }
     public Artikel showKonsumation(){
+
         for(Artikel x : konsumation){
             System.out.println(x.name + " " + x.preis);
+
+
         }
         return null;
     }
