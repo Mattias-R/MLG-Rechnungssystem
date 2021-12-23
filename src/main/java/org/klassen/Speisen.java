@@ -16,14 +16,18 @@ public class Speisen extends Artikel {
         //this.beilage = beilage;
     }
 
-    public static void createSpeisenList(){
-        for(int i = 0; i < App.hauptspeisenListe.size(); i++){
+    public static void createSpeisenList(String speisenString){
+        /*for(int i = 0; i < App.hauptspeisenListe.size(); i++){
             int param = App.hauptspeisenListe.get(i).toString().indexOf(";");
             String name = App.hauptspeisenListe.get(i).toString().replace(".", " ").substring(0, param);
             Double preis = Double.parseDouble(App.hauptspeisenListe.get(i).toString().replace(".", " ").replace(",",".").substring(param+1));
             Speisen neu = new Speisen(name, preis);
             speisenListe.add(neu);
-        }
+        }*/
+        speisenString.replace(",",".");
+        String[] speisenArray = speisenString.split(";");
+        Speisen speise = new Speisen(speisenArray[0].replace("."," "), Double.parseDouble(speisenArray[1].replace(",",".")));
+        speisenListe.add(speise);
     }
     public static void showSpeisenList(){
         for(int i = 0; i < speisenListe.size(); i++){

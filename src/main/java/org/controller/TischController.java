@@ -16,6 +16,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Control;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import org.klassen.Getraenke;
 import org.klassen.Speisen;
 import org.klassen.Tisch;
 
@@ -42,7 +43,7 @@ public class TischController {
         if (tableID.getText() != ""){
             App.setRoot("speisen");
             System.out.println(tableID.getText());
-            Speisen.createSpeisenList();
+            //Speisen.createSpeisenList();
             Speisen.showSpeisenList();
         }else{
             System.out.println("Wählen sie einen Tisch aus");
@@ -53,6 +54,7 @@ public class TischController {
     public void switchToGetraenke() throws IOException{
         if (tableID.getText() != ""){
             App.setRoot("getraenke");
+            Getraenke.printGetraenkeListe();
         }else{
             System.out.println("Wählen sie einen Tisch aus");
         }
