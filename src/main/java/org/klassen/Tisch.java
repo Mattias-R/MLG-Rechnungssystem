@@ -7,6 +7,7 @@ public class Tisch {
     public static String ausgewaehlterTisch = "";
     public int tischnummer;
     public ArrayList<Artikel> konsumation;
+    public static ArrayList<Tisch> tischListe = new ArrayList<>();
 
     public Tisch(int nummer) {
         tischnummer = nummer;
