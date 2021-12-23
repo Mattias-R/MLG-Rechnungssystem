@@ -29,6 +29,7 @@ public class TischController {
 
     public void initialize(){
         tableID.setText(Tisch.ausgewaehlterTisch);
+        Speisen.createSpeisenList();
     }
 
 

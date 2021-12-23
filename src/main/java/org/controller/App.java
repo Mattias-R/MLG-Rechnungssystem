@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+import org.klassen.Speisen;
 import org.klassen.Tisch;
 
 import java.io.File;
@@ -115,6 +116,7 @@ public class App extends Application {
             e.printStackTrace();
         }
         System.out.println(kaffeeListe);
+        System.out.println(Speisen.speisenListe);
     }
 
 }
