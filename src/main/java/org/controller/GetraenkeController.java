@@ -317,5 +317,8 @@ public class GetraenkeController {
         getraenkeAnzahl.setText(((Control)event.getSource()).getId().substring(3));
     }
 
+    public void deleteGetraenke(){
+
+    }
 
 }

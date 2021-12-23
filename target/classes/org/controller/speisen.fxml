@@ -15,7 +15,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.controller.SpeisenController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.controller.SpeisenController">
    <top>
       <GridPane prefHeight="100.0" prefWidth="1280.0" style="-fx-background-color: grey; -fx-border-width: 15;" BorderPane.alignment="CENTER">
         <columnConstraints>
@@ -205,7 +205,7 @@
                      <children>
                         <AnchorPane prefHeight="53.0" prefWidth="124.0">
                            <children>
-                              <Button layoutX="2.0" layoutY="2.0" mnemonicParsing="false" text="Löschen" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0" />
+                              <Button layoutX="2.0" layoutY="2.0" mnemonicParsing="false" onAction="#deleteSpeisen" text="Löschen" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0" />
                            </children>
                         </AnchorPane>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">

@@ -74,6 +74,8 @@ public class TischController {
     public void selectTableNumber(Event event){
         Tisch.ausgewaehlterTisch = ((Control)event.getSource()).getId().substring(5);
         tableID.setText(Tisch.ausgewaehlterTisch);
+        //Test
+        Tisch neu = new Tisch(Integer.parseInt(Tisch.ausgewaehlterTisch));
     }
 
 }

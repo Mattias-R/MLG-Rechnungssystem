@@ -2,7 +2,7 @@ package org.klassen;
 
 public abstract class Artikel {
 
-    public int preis;
+    public double preis;
     public String name;
 
 }

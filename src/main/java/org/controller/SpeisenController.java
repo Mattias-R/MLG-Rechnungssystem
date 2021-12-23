@@ -15,6 +15,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import org.klassen.Speisen;
 import org.klassen.Tisch;
 
 public class SpeisenController {
@@ -39,6 +40,11 @@ public class SpeisenController {
                     //set button text
                     int param = App.hauptspeisenListe.get(counter).toString().indexOf(";");
                     button.setText(App.hauptspeisenListe.get(counter).toString().replace(".", " ").substring(0, param));
+                    /**
+                     *
+                     */
+                    //test this is for the Artikel object
+                    String test =  App.hauptspeisenListe.get(counter).toString().replace(".", " ").replace(",",".").substring(param+1);
 
                     //button functions
                     button.setOnAction(new EventHandler<ActionEvent>() {
@@ -46,6 +52,12 @@ public class SpeisenController {
                         public void handle(ActionEvent actionEvent) {
                             speisenEingabe.setText(button.getText());
                             System.out.println(button.getText());
+                            //test this is for the Artikel object
+                            /**
+                             *
+                             */
+                            Speisen newFood = new Speisen(button.getText(), Double.parseDouble(test));
+                            System.out.println(newFood.preis + " " + newFood.name);
                         }
                     });
 
@@ -313,6 +325,10 @@ public class SpeisenController {
 
     public void selectQuantitySpeisen(Event event){
         speisenAnzahl.setText(((Control)event.getSource()).getId().substring(6));
+    }
+
+    public void deleteSpeisen(){
+
     }
 
 }
