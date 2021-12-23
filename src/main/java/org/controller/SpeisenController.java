@@ -44,7 +44,7 @@ public class SpeisenController {
                      *
                      */
                     //test this is for the Artikel object
-                    String test =  App.hauptspeisenListe.get(counter).toString().replace(".", " ").replace(",",".").substring(param+1);
+                    //String test =  App.hauptspeisenListe.get(counter).toString().replace(".", " ").replace(",",".").substring(param+1);
 
                     //button functions
                     button.setOnAction(new EventHandler<ActionEvent>() {
@@ -56,8 +56,8 @@ public class SpeisenController {
                             /**
                              *
                              */
-                            Speisen newFood = new Speisen(button.getText(), Double.parseDouble(test));
-                            System.out.println(newFood.preis + " " + newFood.name);
+                            //Speisen newFood = new Speisen(button.getText(), Double.parseDouble(test));
+                            //System.out.println(newFood.preis + " " + newFood.name);
                         }
                     });
 
