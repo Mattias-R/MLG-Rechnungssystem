@@ -29,7 +29,6 @@ public class TischController {
 
     public void initialize(){
         tableID.setText(Tisch.ausgewaehlterTisch);
-        Speisen.createSpeisenList();
     }
 
 
@@ -43,6 +42,8 @@ public class TischController {
         if (tableID.getText() != ""){
             App.setRoot("speisen");
             System.out.println(tableID.getText());
+            Speisen.createSpeisenList();
+            Speisen.showSpeisenList();
         }else{
             System.out.println("Wählen sie einen Tisch aus");
         }
