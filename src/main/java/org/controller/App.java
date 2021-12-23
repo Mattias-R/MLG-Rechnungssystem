@@ -24,12 +24,12 @@ import java.util.Scanner;
  * JavaFX App
  */
 public class App extends Application {
-    public static ArrayList hauptspeisenListe = new ArrayList();
-    public static ArrayList vorspeisenListe = new ArrayList();
-    public static ArrayList nachspeisenListe = new ArrayList();
-    public static ArrayList alkoholfreiListe = new ArrayList();
-    public static ArrayList alkoholListe = new ArrayList();
-    public static ArrayList kaffeeListe = new ArrayList();
+    public static ArrayList<String> hauptspeisenListe = new ArrayList();
+    public static ArrayList<String> vorspeisenListe = new ArrayList();
+    public static ArrayList<String> nachspeisenListe = new ArrayList();
+    public static ArrayList<String> alkoholfreiListe = new ArrayList();
+    public static ArrayList<String> alkoholListe = new ArrayList();
+    public static ArrayList<String> kaffeeListe = new ArrayList();
     private static Scene scene;
 
     // set minimum window to 1440x1080
