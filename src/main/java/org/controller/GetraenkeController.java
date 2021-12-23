@@ -294,6 +294,7 @@ public class GetraenkeController {
 
     @FXML
     public void switchToSpeisen() throws IOException {
+
         App.setRoot("speisen");
     }
     @FXML
@@ -318,6 +319,10 @@ public class GetraenkeController {
     }
 
     public void deleteGetraenke(){
+
+    }
+
+    public void getraenkeZuTischHinzufuegen(){
 
     }
 

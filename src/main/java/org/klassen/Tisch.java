@@ -1,13 +1,15 @@
 package org.klassen;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Tisch {
 
     public static String ausgewaehlterTisch = "";
     public int tischnummer;
     public ArrayList<Artikel> konsumation;
-    public static ArrayList<Tisch> tischListe = new ArrayList<>();
+    public static Set<Tisch> tischListe = new HashSet<>();
 
     public Tisch(int nummer) {
         tischnummer = nummer;
@@ -26,6 +28,12 @@ public class Tisch {
     }
 
     public void mitarbeiterRabatt() {
+    }
+
+    public static void testtisch(){
+       for(Tisch n:tischListe){
+           System.out.println(n.tischnummer);
+       }
     }
 
 }

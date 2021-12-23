@@ -32,7 +32,6 @@ public class TischController {
         tableID.setText(Tisch.ausgewaehlterTisch);
     }
 
-
     public void test1 (){
         designerMattias = (GridPane) scene.lookup("#gridpanetable");
         designerMattias.add(peter,4,4);
@@ -45,6 +44,7 @@ public class TischController {
             System.out.println(tableID.getText());
             //Speisen.createSpeisenList();
             Speisen.showSpeisenList();
+            Tisch.testtisch();
         }else{
             System.out.println("Wählen sie einen Tisch aus");
         }
@@ -74,12 +74,13 @@ public class TischController {
 
     }
 
-
     public void selectTableNumber(Event event){
         Tisch.ausgewaehlterTisch = ((Control)event.getSource()).getId().substring(5);
         tableID.setText(Tisch.ausgewaehlterTisch);
         //Test
         Tisch neu = new Tisch(Integer.parseInt(Tisch.ausgewaehlterTisch));
+        Tisch.tischListe.add(neu);
     }
+
 
 }

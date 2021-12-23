@@ -15,7 +15,7 @@
 0,33.Frucade;3,40;false
 0,25.Soda-Himbeere;1,80;false
 0,5.Soda-Himbeere;3,40;false
-0,25Soda-Holunder;1,80;false
+0,25.Soda-Holunder;1,80;false
 0,5.Soda-Holunder;3,40;false
 0,25.Soda-Zitrone;1,80;false
 0,5.Soda-Zitrone;3,40;false

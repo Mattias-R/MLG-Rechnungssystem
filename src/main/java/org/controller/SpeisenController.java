@@ -331,4 +331,23 @@ public class SpeisenController {
 
     }
 
+    public void speisenZuTischHinzufuegen(){
+
+    }
+
+    public TextField getSpeisenEingabe() {
+        return speisenEingabe;
+    }
+
+    public void setSpeisenEingabe(TextField speisenEingabe) {
+        this.speisenEingabe = speisenEingabe;
+    }
+
+    public TextField getSpeisenAnzahl() {
+        return speisenAnzahl;
+    }
+
+    public void setSpeisenAnzahl(TextField speisenAnzahl) {
+        this.speisenAnzahl = speisenAnzahl;
+    }
 }

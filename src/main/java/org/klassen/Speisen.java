@@ -1,6 +1,8 @@
 package org.klassen;
 
 import org.controller.App;
+import org.controller.SpeisenController;
+import org.controller.TischController;
 
 import java.util.ArrayList;
 
@@ -34,5 +36,19 @@ public class Speisen extends Artikel {
             System.out.println(speisenListe.get(i).name);
         }
     }
+
+    public static void speisenZuRechnunghinzufuegen(){
+        SpeisenController test = new SpeisenController();
+        if(test.speisenEingabe.getText() != null){
+            for (int i = 0; i < speisenListe.size(); i++){
+                if (test.speisenEingabe.getText() == speisenListe.get(i).name){
+                    //speichere in Tableliste
+                }
+            }
+        }else {
+                //Pop up ist noch keine speise ausgewaehlt
+        }
+    }
+
 
 }
