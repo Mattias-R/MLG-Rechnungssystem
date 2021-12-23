@@ -15,6 +15,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import org.klassen.Artikel;
 import org.klassen.Speisen;
 import org.klassen.Tisch;
 
@@ -267,6 +268,21 @@ public class SpeisenController {
                         public void handle(ActionEvent actionEvent) {
                             speisenEingabe.setText(button.getText());
                             System.out.println(button.getText());
+                            //Test add food to specific list -------------------------- IMPORTANT
+                            for(Tisch tisch: Tisch.tischListe){
+                                if(tisch.tischnummer == Integer.parseInt(Tisch.ausgewaehlterTisch)){
+                                    System.out.println("!!!!");
+                                    for(Speisen speise : Speisen.speisenListe){
+                                        if(button.getText().equals(speise.name)){
+                                            tisch.speiseHinzufuegen(speise);
+                                            tisch.showKonsumation();
+                                            System.out.println(speise.name + " !!!");
+                                        }
+                                    }
+                                }
+                            }
+                            //------------------------------------------
+
                         }
                     });
 

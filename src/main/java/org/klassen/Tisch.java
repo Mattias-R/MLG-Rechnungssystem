@@ -9,7 +9,7 @@ public class Tisch {
 
     public static String ausgewaehlterTisch = "";
     public int tischnummer;
-    public ArrayList<Artikel> konsumation;
+    public ArrayList<Artikel> konsumation = new ArrayList<>();
     public static Set<Tisch> tischListe = new HashSet<>();
 
     @Override
@@ -47,6 +47,12 @@ public class Tisch {
        for(Tisch n:tischListe){
            System.out.println(n.tischnummer);
        }
+    }
+    public Artikel showKonsumation(){
+        for(Artikel x : konsumation){
+            System.out.println(x.name + " " + x.preis);
+        }
+        return null;
     }
 
 }

@@ -44,7 +44,6 @@ public class TischController {
             System.out.println(tableID.getText());
             //Speisen.createSpeisenList();
             Speisen.showSpeisenList();
-            Tisch.testtisch();
         }else{
             System.out.println("Wählen sie einen Tisch aus");
         }
