@@ -2,16 +2,14 @@ package org.controller;
 
 import java.io.IOException;
 
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Control;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
@@ -25,6 +23,9 @@ public class SpeisenController {
     public TextField speisenEingabe;
     public TextField speisenAnzahl;
     public TableView speisenAnzeigeTafel;
+    public TableColumn tableViewAnzahl;
+    public TableColumn tableViewArtikel;
+    public TableColumn tableViewPreis;
 
     public void initialize(){
         //set tableID to Tablenumber
@@ -52,7 +53,7 @@ public class SpeisenController {
                         @Override
                         public void handle(ActionEvent actionEvent) {
                             speisenEingabe.setText(button.getText());
-                            System.out.println(button.getText());
+                            //System.out.println(button.getText());
                             //test this is for the Artikel object
                             /**
                              *
@@ -84,7 +85,7 @@ public class SpeisenController {
 
 
                 } catch(Exception e){
-                    System.out.println(e);
+                    //System.out.println(e);
                 }
 
                 counter++;
@@ -98,13 +99,13 @@ public class SpeisenController {
         for(int i = 0; i <= 6; i++) {
             for (int y = 0; y < 4; y++) {
                 try{
-                    System.out.println(y + "" + i);
+                    //System.out.println(y + "" + i);
                     speisenGrid.getChildren().clear();
                    // speisenGrid.getChildren().remove(i,y);
                 }catch (Exception e) {
 
-                    System.out.println(e);
-                    System.out.println(y + "hi" + i);
+                    //System.out.println(e);
+                    //System.out.println(y + "hi" + i);
                 }
 
             }
@@ -127,7 +128,7 @@ public class SpeisenController {
                         @Override
                         public void handle(ActionEvent actionEvent) {
                             speisenEingabe.setText(button.getText());
-                            System.out.println(button.getText());
+                            //System.out.println(button.getText());
                         }
                     });
 
@@ -153,7 +154,7 @@ public class SpeisenController {
 
 
                 } catch(Exception e){
-                    System.out.println(e);
+                    //System.out.println(e);
                 }
 
                 counter++;
@@ -168,13 +169,13 @@ public class SpeisenController {
         for(int i = 0; i <= 6; i++) {
             for (int y = 0; y < 4; y++) {
                 try{
-                    System.out.println(y + "" + i);
+                    //System.out.println(y + "" + i);
                     speisenGrid.getChildren().clear();
                     // speisenGrid.getChildren().remove(i,y);
                 }catch (Exception e) {
 
-                    System.out.println(e);
-                    System.out.println(y + "hi" + i);
+                    //System.out.println(e);
+                    //System.out.println(y + "hi" + i);
                 }
 
             }
@@ -197,7 +198,7 @@ public class SpeisenController {
                         @Override
                         public void handle(ActionEvent actionEvent) {
                             speisenEingabe.setText(button.getText());
-                            System.out.println(button.getText());
+                            //System.out.println(button.getText());
                         }
                     });
 
@@ -223,7 +224,7 @@ public class SpeisenController {
 
 
                 } catch(Exception e){
-                    System.out.println(e);
+                    //System.out.println(e);
                 }
 
                 counter++;
@@ -238,13 +239,13 @@ public class SpeisenController {
         for(int i = 0; i <= 6; i++) {
             for (int y = 0; y < 4; y++) {
                 try{
-                    System.out.println(y + "" + i);
+                    //System.out.println(y + "" + i);
                     speisenGrid.getChildren().clear();
                     // speisenGrid.getChildren().remove(i,y);
                 }catch (Exception e) {
 
-                    System.out.println(e);
-                    System.out.println(y + "hi" + i);
+                    //System.out.println(e);
+                    //System.out.println(y + "hi" + i);
                 }
 
             }
@@ -267,7 +268,7 @@ public class SpeisenController {
                         @Override
                         public void handle(ActionEvent actionEvent) {
                             speisenEingabe.setText(button.getText());
-                            System.out.println(button.getText());
+                            //System.out.println(button.getText());
 
                         }
                     });
@@ -294,7 +295,7 @@ public class SpeisenController {
 
 
                 } catch(Exception e){
-                    System.out.println(e);
+                    //System.out.println(e);
                 }
 
                 counter++;
@@ -315,14 +316,10 @@ public class SpeisenController {
     @FXML
     private void switchToSecondary() throws IOException {
         App.setRoot("tisch");
-        //hallo goran
-        //zweites
     }
     @FXML
     private void switchToRechnung() throws IOException {
         App.setRoot("rechnung");
-        //hallo goran
-        //zweites
     }
 
     public void selectQuantitySpeisen(Event event){
@@ -350,11 +347,13 @@ public class SpeisenController {
                     if (speisenEingabe.getText().equals(speise.name)) {
                         tisch.artikelHinzufuegen(speise, anzahl);
                         tisch.showKonsumation();
+                        Tisch.addToTableView(speisenAnzeigeTafel, tableViewAnzahl, tableViewArtikel, tableViewPreis, speise, anzahl);
                     }
                 }
             }
         }
     }
+
     public TextField getSpeisenEingabe() {
         return speisenEingabe;
     }

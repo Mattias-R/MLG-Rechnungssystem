@@ -33,7 +33,7 @@ public class Speisen extends Artikel {
     }
     public static void showSpeisenList(){
         for(int i = 0; i < speisenListe.size(); i++){
-            System.out.println(speisenListe.get(i).name);
+            //System.out.println(speisenListe.get(i).name);
         }
     }
 

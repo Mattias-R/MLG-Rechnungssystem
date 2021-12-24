@@ -128,8 +128,8 @@ public class App extends Application {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        System.out.println(kaffeeListe);
-        System.out.println(Speisen.speisenListe);
+        //System.out.println(kaffeeListe);
+        //System.out.println(Speisen.speisenListe);
     }
 
 }

@@ -35,13 +35,13 @@ public class TischController {
     public void test1 (){
         designerMattias = (GridPane) scene.lookup("#gridpanetable");
         designerMattias.add(peter,4,4);
-        System.out.println("hallo");
+        //System.out.println("hallo");
     }
     @FXML
     public void switchToSpeisen() throws IOException{
         if (tableID.getText() != ""){
             App.setRoot("speisen");
-            System.out.println(tableID.getText());
+            //System.out.println(tableID.getText());
             //Speisen.createSpeisenList();
             Speisen.showSpeisenList();
         }else{

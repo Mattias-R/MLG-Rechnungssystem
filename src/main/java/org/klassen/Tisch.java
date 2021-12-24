@@ -1,11 +1,14 @@
 package org.klassen;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableRow;
+import javafx.scene.control.TableView;
 import org.controller.SpeisenController;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
+import java.security.KeyStore;
+import java.util.*;
 
 public class Tisch {
 
@@ -14,6 +17,7 @@ public class Tisch {
     public ArrayList<Artikel> konsumation = new ArrayList<>();
     public ArrayList<Integer> konsumationAnzahl = new ArrayList<>();
     public static Set<Tisch> tischListe = new HashSet<>();
+    public static ObservableList<Entry> data = FXCollections.observableArrayList();
 
     @Override
     public int hashCode() {
@@ -54,18 +58,36 @@ public class Tisch {
     public void mitarbeiterRabatt() {
     }
 
-    public static void testtisch(){
-       for(Tisch n:tischListe){
-           System.out.println(n.tischnummer);
-       }
+    public static void addToTableView(TableView tableView, TableColumn tableAnzahl, TableColumn tableArtikel, TableColumn tablePreis, Artikel artikel, int anzahl) {
+        tableAnzahl.setText("" + anzahl);
+        tableArtikel.setText(artikel.name);
+        tablePreis.setText("" + artikel.preis);
+        Entry newEntry = new Entry("" + anzahl, artikel.name, "" + artikel.preis);
+        tableView.getColumns().addAll(tableAnzahl, tableArtikel, tablePreis);
+        tableView.getItems().add(newEntry);
+        data.add(newEntry);
+        tableView.setItems(data);
     }
+
     public Artikel showKonsumation(){
         int i = 0;
         for(Artikel x : konsumation){
-            System.out.println(konsumationAnzahl.get(i) + " x " +x.name + " " + x.preis);
+            //System.out.println(konsumationAnzahl.get(i) + " x " +x.name + " " + x.preis);
             i++;
         }
         return null;
     }
 
+}
+
+class Entry {
+    String anzahl;
+    String artikel;
+    String preis;
+
+    public Entry(String anzahl, String artikel, String preis){
+        this.anzahl = anzahl;
+        this.artikel = artikel;
+        this.preis = preis;
+    }
 }

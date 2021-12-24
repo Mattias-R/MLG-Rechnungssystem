@@ -43,7 +43,7 @@ public class GetraenkeController {
                         @Override
                         public void handle(ActionEvent actionEvent) {
                             getraenkeEingabe.setText(button.getText());
-                            System.out.println(button.getText());
+                            //System.out.println(button.getText());
                         }
                     });
 
@@ -69,7 +69,7 @@ public class GetraenkeController {
 
 
                 } catch(Exception e){
-                    System.out.println(e);
+                    //System.out.println(e);
                 }
 
                 counter++;
@@ -86,13 +86,13 @@ public class GetraenkeController {
         for(int i = 0; i <= 6; i++) {
             for (int y = 0; y < 4; y++) {
                 try{
-                    System.out.println(y + "" + i);
+                    //System.out.println(y + "" + i);
                     getraenkeGrid.getChildren().clear();
                     // speisenGrid.getChildren().remove(i,y);
                 }catch (Exception e) {
 
-                    System.out.println(e);
-                    System.out.println(y + "hi" + i);
+                    //System.out.println(e);
+                    //System.out.println(y + "hi" + i);
                 }
 
             }
@@ -115,7 +115,7 @@ public class GetraenkeController {
                         @Override
                         public void handle(ActionEvent actionEvent) {
                             getraenkeEingabe.setText(button.getText());
-                            System.out.println(button.getText());
+                            //System.out.println(button.getText());
                         }
                     });
 
@@ -141,7 +141,7 @@ public class GetraenkeController {
 
 
                 } catch(Exception e){
-                    System.out.println(e);
+                    //System.out.println(e);
                 }
 
                 counter++;
@@ -156,13 +156,13 @@ public class GetraenkeController {
         for(int i = 0; i <= 6; i++) {
             for (int y = 0; y < 4; y++) {
                 try{
-                    System.out.println(y + "" + i);
+                    //System.out.println(y + "" + i);
                     getraenkeGrid.getChildren().clear();
                     // speisenGrid.getChildren().remove(i,y);
                 }catch (Exception e) {
 
-                    System.out.println(e);
-                    System.out.println(y + "hi" + i);
+                    //System.out.println(e);
+                    //System.out.println(y + "hi" + i);
                 }
 
             }
@@ -185,7 +185,7 @@ public class GetraenkeController {
                         @Override
                         public void handle(ActionEvent actionEvent) {
                             getraenkeEingabe.setText(button.getText());
-                            System.out.println(button.getText());
+                            //System.out.println(button.getText());
                         }
                     });
 
@@ -211,7 +211,7 @@ public class GetraenkeController {
 
 
                 } catch(Exception e){
-                    System.out.println(e);
+                    //System.out.println(e);
                 }
 
                 counter++;
@@ -226,13 +226,13 @@ public class GetraenkeController {
         for(int i = 0; i <= 6; i++) {
             for (int y = 0; y < 4; y++) {
                 try{
-                    System.out.println(y + "" + i);
+                    //System.out.println(y + "" + i);
                     getraenkeGrid.getChildren().clear();
                     // speisenGrid.getChildren().remove(i,y);
                 }catch (Exception e) {
 
-                    System.out.println(e);
-                    System.out.println(y + "hi" + i);
+                    //System.out.println(e);
+                    //System.out.println(y + "hi" + i);
                 }
 
             }
@@ -255,7 +255,7 @@ public class GetraenkeController {
                         @Override
                         public void handle(ActionEvent actionEvent) {
                             getraenkeEingabe.setText(button.getText());
-                            System.out.println(button.getText());
+                            //System.out.println(button.getText());
                         }
                     });
 
@@ -281,7 +281,7 @@ public class GetraenkeController {
 
 
                 } catch(Exception e){
-                    System.out.println(e);
+                    //System.out.println(e);
                 }
 
                 counter++;

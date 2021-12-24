@@ -31,7 +31,7 @@ public class Getraenke extends Artikel {
 
     public static void printGetraenkeListe() {
         for(int i = 0; i < getraenkeList.size(); i++) {
-            System.out.println(getraenkeList.get(i).name);
+            //System.out.println(getraenkeList.get(i).name);
         }
     }
 }
