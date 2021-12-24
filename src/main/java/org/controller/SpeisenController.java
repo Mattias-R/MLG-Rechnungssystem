@@ -15,8 +15,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.Text;
-import org.klassen.Artikel;
 import org.klassen.Speisen;
 import org.klassen.Tisch;
 
@@ -332,6 +330,16 @@ public class SpeisenController {
     }
 
     public void deleteSpeisen(){
+        int anzahl = Integer.parseInt(speisenAnzahl.getText());
+        for (Tisch tisch : Tisch.tischListe) {
+            if (tisch.tischnummer == Integer.parseInt(Tisch.ausgewaehlterTisch)) {
+                for (Speisen speise : Speisen.speisenListe) {
+                    if (speisenEingabe.getText().equals(speise.name) && tisch.konsumation.contains(speise)) {
+                        tisch.artikelLoeschen(speise, anzahl);
+                    }
+                }
+            }
+        }
     }
 
     public void speisenZuTischHinzufuegen() {
@@ -340,7 +348,7 @@ public class SpeisenController {
             if (tisch.tischnummer == Integer.parseInt(Tisch.ausgewaehlterTisch)) {
                 for (Speisen speise : Speisen.speisenListe) {
                     if (speisenEingabe.getText().equals(speise.name)) {
-                        tisch.speiseHinzufuegen(speise, anzahl);
+                        tisch.artikelHinzufuegen(speise, anzahl);
                         tisch.showKonsumation();
                     }
                 }

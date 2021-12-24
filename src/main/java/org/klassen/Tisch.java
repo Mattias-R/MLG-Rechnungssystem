@@ -31,28 +31,24 @@ public class Tisch {
         tischnummer = nummer;
     }
 
-    public void speiseHinzufuegen(Speisen speise, int anzahl) {
-        if(konsumation.contains(speise)){
-                int neueAnzahl = konsumationAnzahl.get(konsumation.indexOf(speise)) + anzahl;
-                konsumationAnzahl.set(konsumation.indexOf(speise), neueAnzahl);
+    public void artikelHinzufuegen(Artikel artikel, int anzahl) {
+        if(konsumation.contains(artikel)){
+            int neueAnzahl = konsumationAnzahl.get(konsumation.indexOf(artikel)) + anzahl;
+            konsumationAnzahl.set(konsumation.indexOf(artikel), neueAnzahl);
         } else {
-                konsumation.add(speise);
-                konsumationAnzahl.add(anzahl);
-        }
-    }
-
-    public void getraenkHinzufuegen(Getraenke getraenk, int anzahl) {
-        if(konsumation.contains(getraenk)){
-            int neueAnzahl = konsumationAnzahl.get(konsumation.indexOf(getraenk)) + anzahl;
-            konsumationAnzahl.set(konsumation.indexOf(getraenk), neueAnzahl);
-        } else {
-            konsumation.add(getraenk);
+            konsumation.add(artikel);
             konsumationAnzahl.add(anzahl);
         }
     }
 
-    public void loeschen(Artikel artikel) {
+    public void artikelLoeschen(Artikel artikel, int anzahl) {
+        if(konsumation.contains(artikel) && konsumationAnzahl.get(konsumation.indexOf(artikel)) <= anzahl){
+            konsumationAnzahl.remove(konsumationAnzahl.get(konsumation.indexOf(artikel)));
             konsumation.remove(artikel);
+        } else {
+            int neueAnzahl = konsumationAnzahl.get(konsumation.indexOf(artikel)) - anzahl;
+            konsumationAnzahl.set(konsumation.indexOf(artikel), neueAnzahl);
+        }
     }
 
     public void mitarbeiterRabatt() {

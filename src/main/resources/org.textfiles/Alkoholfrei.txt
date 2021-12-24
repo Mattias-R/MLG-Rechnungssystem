@@ -7,8 +7,8 @@
 0,25.Orangensaft.mit.Soda;2,50;false
 0,5.Orangensaft.mit.Soda;4,50;false
 0,33.Mineral.Prickelnd;2,90;false
-0,33.Mineral.Prickelnd;4,90;false
-0,75.Mineral.Still;2,90;false
+0,75.Mineral.Prickelnd;4,90;false
+0,33.Mineral.Still;2,90;false
 0,75.Mineral.Still;4,90;false
 0,33.Coca-Cola;3,40;false
 0,33.Almdudler;3,40;false
