@@ -11,6 +11,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
+import org.klassen.Getraenke;
+import org.klassen.Speisen;
 import org.klassen.Tisch;
 
 import java.io.IOException;
@@ -323,7 +325,17 @@ public class GetraenkeController {
     }
 
     public void getraenkeZuTischHinzufuegen(){
-
+        int anzahl = Integer.parseInt(getraenkeAnzahl.getText());
+        for (Tisch tisch : Tisch.tischListe) {
+            if (tisch.tischnummer == Integer.parseInt(Tisch.ausgewaehlterTisch)) {
+                for (Getraenke getraenk : Getraenke.getraenkeList) {
+                    if (getraenkeEingabe.getText().equals(getraenk.name)) {
+                        tisch.getraenkHinzufuegen(getraenk, anzahl);
+                        tisch.showKonsumation();
+                    }
+                }
+            }
+        }
     }
 
 }

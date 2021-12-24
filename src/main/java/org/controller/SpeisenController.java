@@ -270,20 +270,6 @@ public class SpeisenController {
                         public void handle(ActionEvent actionEvent) {
                             speisenEingabe.setText(button.getText());
                             System.out.println(button.getText());
-                            //Test add food to specific list -------------------------- IMPORTANT
-                            for(Tisch tisch: Tisch.tischListe){
-                                if(tisch.tischnummer == Integer.parseInt(Tisch.ausgewaehlterTisch)){
-                                    System.out.println("!!!!");
-                                    for(Speisen speise : Speisen.speisenListe){
-                                        if(button.getText().equals(speise.name)){
-                                          //  tisch.speiseHinzufuegen(speise, a);
-                                            tisch.showKonsumation();
-                                            System.out.println(speise.name + " !!!");
-                                        }
-                                    }
-                                }
-                            }
-                            //------------------------------------------
 
                         }
                     });
@@ -346,16 +332,15 @@ public class SpeisenController {
     }
 
     public void deleteSpeisen(){
-
     }
 
     public void speisenZuTischHinzufuegen() {
-       // int anzahl = Integer.parseInt(speisenAnzahl.getText());
+        int anzahl = Integer.parseInt(speisenAnzahl.getText());
         for (Tisch tisch : Tisch.tischListe) {
             if (tisch.tischnummer == Integer.parseInt(Tisch.ausgewaehlterTisch)) {
                 for (Speisen speise : Speisen.speisenListe) {
                     if (speisenEingabe.getText().equals(speise.name)) {
-                        tisch.speiseHinzufuegen(speise);
+                        tisch.speiseHinzufuegen(speise, anzahl);
                         tisch.showKonsumation();
                     }
                 }

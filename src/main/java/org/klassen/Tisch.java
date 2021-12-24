@@ -12,6 +12,7 @@ public class Tisch {
     public static String ausgewaehlterTisch = "";
     public int tischnummer;
     public ArrayList<Artikel> konsumation = new ArrayList<>();
+    public ArrayList<Integer> konsumationAnzahl = new ArrayList<>();
     public static Set<Tisch> tischListe = new HashSet<>();
 
     @Override
@@ -30,12 +31,24 @@ public class Tisch {
         tischnummer = nummer;
     }
 
-    public void speiseHinzufuegen(Speisen speise) {
-        konsumation.add(speise);
+    public void speiseHinzufuegen(Speisen speise, int anzahl) {
+        if(konsumation.contains(speise)){
+                int neueAnzahl = konsumationAnzahl.get(konsumation.indexOf(speise)) + anzahl;
+                konsumationAnzahl.set(konsumation.indexOf(speise), neueAnzahl);
+        } else {
+                konsumation.add(speise);
+                konsumationAnzahl.add(anzahl);
+        }
     }
 
-    public void getraenkHinzufuegen(Getraenke getraenk) {
-        konsumation.add(getraenk);
+    public void getraenkHinzufuegen(Getraenke getraenk, int anzahl) {
+        if(konsumation.contains(getraenk)){
+            int neueAnzahl = konsumationAnzahl.get(konsumation.indexOf(getraenk)) + anzahl;
+            konsumationAnzahl.set(konsumation.indexOf(getraenk), neueAnzahl);
+        } else {
+            konsumation.add(getraenk);
+            konsumationAnzahl.add(anzahl);
+        }
     }
 
     public void loeschen(Artikel artikel) {
@@ -51,11 +64,10 @@ public class Tisch {
        }
     }
     public Artikel showKonsumation(){
-
+        int i = 0;
         for(Artikel x : konsumation){
-            System.out.println(x.name + " " + x.preis);
-
-
+            System.out.println(konsumationAnzahl.get(i) + " x " +x.name + " " + x.preis);
+            i++;
         }
         return null;
     }
