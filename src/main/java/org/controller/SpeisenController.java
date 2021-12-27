@@ -42,9 +42,9 @@ public class SpeisenController {
         tableViewAnzahl.setCellValueFactory(new PropertyValueFactory<>("anzahl"));
         tableViewArtikel.setCellValueFactory(new PropertyValueFactory<>("artikel"));
         tableViewPreis.setCellValueFactory(new PropertyValueFactory<>("preis"));
-        Entry ente = new Entry("1","test","5");
-        data.add(ente);
-        data.add(new Entry("test","test","test"));
+        //Entry ente = new Entry("1","test","5");
+        //data.add(ente);
+        //data.add(new Entry("test","test","test"));
         //----------------------------------------------
         //set tableID to Tablenumber
         speisenTableID.setText(Tisch.ausgewaehlterTisch);
@@ -287,7 +287,6 @@ public class SpeisenController {
                         public void handle(ActionEvent actionEvent) {
                             speisenEingabe.setText(button.getText());
                             //System.out.println(button.getText());
-
                         }
                     });
 
@@ -367,6 +366,8 @@ public class SpeisenController {
                         tisch.showKonsumation();
                         Tisch.addToTableView(speisenAnzeigeTafel, tableViewAnzahl, tableViewArtikel, tableViewPreis, speise, anzahl);
                         //Tisch.teest(data, speise, anzahl);
+                        //Entry.createEntryInList(data, "anzahl", "name", "preis");
+                        Entry.addItemToList(data, anzahl, speise.name, speise.preis);
                     }
                 }
             }

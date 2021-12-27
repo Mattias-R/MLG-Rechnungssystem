@@ -3,17 +3,31 @@ package org.klassen;
 import javafx.collections.ObservableList;
 
 public class Entry {
-    public String anzahl;
+    public int anzahl;
     public String artikel;
-    public String preis;
+    public double preis;
 
-    public Entry(String anzahl, String artikel, String preis){
+    public Entry(int anzahl, String artikel, double preis){
         this.anzahl = anzahl;
         this.artikel = artikel;
         this.preis = preis;
     }
 
-    public static void createEntryInList(ObservableList data, String anzahl, String preis, String artikel){
-
+    //without getter the observarble list doesnt work
+    public int getAnzahl() {
+        return anzahl;
     }
+
+    public String getArtikel() {
+        return artikel;
+    }
+
+    public double getPreis() {
+        return preis;
+    }
+    public static void addItemToList(ObservableList data, int anzahl, String artikel, double preis){
+        data.add(new Entry(anzahl, artikel, preis));
+    }
+
+
 }

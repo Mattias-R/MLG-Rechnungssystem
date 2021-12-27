@@ -67,7 +67,7 @@ public class Tisch {
         //tableAnzahl.setText("" + anzahl);
         //tableArtikel.setText(artikel.name);
         //tablePreis.setText("" + artikel.preis);
-        Entry newEntry = new Entry("" + anzahl, artikel.name, "" + artikel.preis);
+        //Entry newEntry = new Entry("" + anzahl, artikel.name, "" + artikel.preis);
         //tableView.getColumns().addAll(tableAnzahl, tableArtikel, tablePreis);
         //tableView.getItems().add(new Entry("test","test","test"));
         //tableView.setItems(SpeisenController.data);
