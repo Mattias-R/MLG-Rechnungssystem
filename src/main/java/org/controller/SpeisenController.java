@@ -1,7 +1,10 @@
 package org.controller;
 
 import java.io.IOException;
+import java.lang.reflect.Parameter;
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
@@ -10,9 +13,11 @@ import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
+import org.klassen.Entry;
 import org.klassen.Speisen;
 import org.klassen.Tisch;
 
@@ -23,11 +28,24 @@ public class SpeisenController {
     public TextField speisenEingabe;
     public TextField speisenAnzahl;
     public TableView speisenAnzeigeTafel;
-    public TableColumn tableViewAnzahl;
-    public TableColumn tableViewArtikel;
-    public TableColumn tableViewPreis;
+    public TableColumn<ObservableList<Entry>, String> tableViewAnzahl;
+    public TableColumn<ObservableList<Entry>, String> tableViewArtikel;
+    public TableColumn<ObservableList<Entry>, String> tableViewPreis;
+
+    public static ObservableList<Entry> data = FXCollections.observableArrayList();
+
+
 
     public void initialize(){
+        //ObserverableList config
+        speisenAnzeigeTafel.setItems(data);
+        tableViewAnzahl.setCellValueFactory(new PropertyValueFactory<>("anzahl"));
+        tableViewArtikel.setCellValueFactory(new PropertyValueFactory<>("artikel"));
+        tableViewPreis.setCellValueFactory(new PropertyValueFactory<>("preis"));
+        Entry ente = new Entry("1","test","5");
+        data.add(ente);
+        data.add(new Entry("test","test","test"));
+        //----------------------------------------------
         //set tableID to Tablenumber
         speisenTableID.setText(Tisch.ausgewaehlterTisch);
         int counter = 0;
@@ -348,6 +366,7 @@ public class SpeisenController {
                         tisch.artikelHinzufuegen(speise, anzahl);
                         tisch.showKonsumation();
                         Tisch.addToTableView(speisenAnzeigeTafel, tableViewAnzahl, tableViewArtikel, tableViewPreis, speise, anzahl);
+                        //Tisch.teest(data, speise, anzahl);
                     }
                 }
             }

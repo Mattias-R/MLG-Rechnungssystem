@@ -1,5 +1,6 @@
 package org.klassen;
 
+import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.TableColumn;
@@ -17,7 +18,7 @@ public class Tisch {
     public ArrayList<Artikel> konsumation = new ArrayList<>();
     public ArrayList<Integer> konsumationAnzahl = new ArrayList<>();
     public static Set<Tisch> tischListe = new HashSet<>();
-    public static ObservableList<Entry> data = FXCollections.observableArrayList();
+    //public static ObservableList<Entry> data = FXCollections.observableArrayList();
 
     @Override
     public int hashCode() {
@@ -58,15 +59,21 @@ public class Tisch {
     public void mitarbeiterRabatt() {
     }
 
+    public static void teest(Observable data, Artikel artikel, int anzahl){
+        //SpeisenController.data.add(new Entry("test","test","test"));
+    }
+
     public static void addToTableView(TableView tableView, TableColumn tableAnzahl, TableColumn tableArtikel, TableColumn tablePreis, Artikel artikel, int anzahl) {
-        tableAnzahl.setText("" + anzahl);
-        tableArtikel.setText(artikel.name);
-        tablePreis.setText("" + artikel.preis);
+        //tableAnzahl.setText("" + anzahl);
+        //tableArtikel.setText(artikel.name);
+        //tablePreis.setText("" + artikel.preis);
         Entry newEntry = new Entry("" + anzahl, artikel.name, "" + artikel.preis);
-        tableView.getColumns().addAll(tableAnzahl, tableArtikel, tablePreis);
-        tableView.getItems().add(newEntry);
-        data.add(newEntry);
-        tableView.setItems(data);
+        //tableView.getColumns().addAll(tableAnzahl, tableArtikel, tablePreis);
+        //tableView.getItems().add(new Entry("test","test","test"));
+        //tableView.setItems(SpeisenController.data);
+        //SpeisenController.data.add(new Entry("test","test","test"));
+        //data.add(newEntry);
+        //tableView.setItems(data);
     }
 
     public Artikel showKonsumation(){
