@@ -18,7 +18,7 @@ public class Tisch {
     public ArrayList<Artikel> konsumation = new ArrayList<>();
     public ArrayList<Integer> konsumationAnzahl = new ArrayList<>();
     public static Set<Tisch> tischListe = new HashSet<>();
-    //public static ObservableList<Entry> data = FXCollections.observableArrayList();
+    public ObservableList<Entry> data = FXCollections.observableArrayList();
 
     @Override
     public int hashCode() {
@@ -63,7 +63,10 @@ public class Tisch {
         //SpeisenController.data.add(new Entry("test","test","test"));
     }
 
-    public static void addToTableView(TableView tableView, TableColumn tableAnzahl, TableColumn tableArtikel, TableColumn tablePreis, Artikel artikel, int anzahl) {
+    public void addToTableView(TableView x, Artikel artikel, int anzahl) {
+        x.setItems(data);
+        this.data.add(new Entry(anzahl, artikel.name, artikel.preis));
+
         //tableAnzahl.setText("" + anzahl);
         //tableArtikel.setText(artikel.name);
         //tablePreis.setText("" + artikel.preis);
@@ -74,6 +77,9 @@ public class Tisch {
         //SpeisenController.data.add(new Entry("test","test","test"));
         //data.add(newEntry);
         //tableView.setItems(data);
+    }
+    public void showTableView(TableView x){
+        x.setItems(data);
     }
 
     public Artikel showKonsumation(){

@@ -32,16 +32,24 @@ public class SpeisenController {
     public TableColumn<ObservableList<Entry>, String> tableViewArtikel;
     public TableColumn<ObservableList<Entry>, String> tableViewPreis;
 
-    public static ObservableList<Entry> data = FXCollections.observableArrayList();
+    //public static ObservableList<Entry> data = FXCollections.observableArrayList();
 
 
 
     public void initialize(){
         //ObserverableList config
-        speisenAnzeigeTafel.setItems(data);
+        //speisenAnzeigeTafel.setItems(data);
         tableViewAnzahl.setCellValueFactory(new PropertyValueFactory<>("anzahl"));
         tableViewArtikel.setCellValueFactory(new PropertyValueFactory<>("artikel"));
         tableViewPreis.setCellValueFactory(new PropertyValueFactory<>("preis"));
+
+
+        for (Tisch tisch : Tisch.tischListe) {
+            if (tisch.tischnummer == Integer.parseInt(Tisch.ausgewaehlterTisch)) {
+                tisch.showTableView(speisenAnzeigeTafel);
+            }
+        }
+
         //Entry ente = new Entry("1","test","5");
         //data.add(ente);
         //data.add(new Entry("test","test","test"));
@@ -364,10 +372,10 @@ public class SpeisenController {
                     if (speisenEingabe.getText().equals(speise.name)) {
                         tisch.artikelHinzufuegen(speise, anzahl);
                         tisch.showKonsumation();
-                        Tisch.addToTableView(speisenAnzeigeTafel, tableViewAnzahl, tableViewArtikel, tableViewPreis, speise, anzahl);
+                        tisch.addToTableView(speisenAnzeigeTafel, speise, anzahl);
                         //Tisch.teest(data, speise, anzahl);
                         //Entry.createEntryInList(data, "anzahl", "name", "preis");
-                        Entry.addItemToList(data, anzahl, speise.name, speise.preis);
+                        //Entry.addItemToList(data, anzahl, speise.name, speise.preis);
                     }
                 }
             }
