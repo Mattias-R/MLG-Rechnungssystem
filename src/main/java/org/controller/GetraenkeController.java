@@ -33,6 +33,13 @@ public class GetraenkeController {
         tableViewArtikel.setCellValueFactory(new PropertyValueFactory<>("artikel"));
         tableViewPreis.setCellValueFactory(new PropertyValueFactory<>("preis"));
 
+        for (Tisch tisch : Tisch.tischListe) {
+            if (tisch.tischnummer == Integer.parseInt(Tisch.ausgewaehlterTisch)) {
+                tisch.showTableView(getraenkeAnzeigeTafel);
+            }
+        }
+
+
         int counter = 0;
         for(int i = 0; i <= 6; i++){
             for(int y = 0; y < 4; y++){

@@ -354,15 +354,13 @@ public class SpeisenController {
 
     public void deleteSpeisen(){
         int anzahl = Integer.parseInt(speisenAnzahl.getText());
+        int x = speisenAnzeigeTafel.getSelectionModel().getSelectedIndex();
         for (Tisch tisch : Tisch.tischListe) {
             if (tisch.tischnummer == Integer.parseInt(Tisch.ausgewaehlterTisch)) {
+                tisch.data.remove(x);
                 for (Speisen speise : Speisen.speisenListe) {
                     if (speisenEingabe.getText().equals(speise.name) && tisch.konsumation.contains(speise)) {
                         tisch.artikelLoeschen(speise, anzahl);
-                        int x = speisenAnzeigeTafel.getSelectionModel().getSelectedIndex();
-                        System.out.println(x);
-                        tisch.data.remove(x);
-                        System.out.println(tisch.data);
                     }
                 }
             }

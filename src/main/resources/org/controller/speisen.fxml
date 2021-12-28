@@ -131,8 +131,8 @@
                   <TableView fx:id="speisenAnzeigeTafel" layoutX="25.0" layoutY="116.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                     <columns>
                       <TableColumn fx:id="tableViewAnzahl" prefWidth="42.0" text="anzahl" />
-                      <TableColumn fx:id="tableViewArtikel" prefWidth="170.0" text="artikel" />
-                        <TableColumn fx:id="tableViewPreis" prefWidth="37.0" text="preis" />
+                      <TableColumn fx:id="tableViewArtikel" prefWidth="163.0" text="artikel" />
+                        <TableColumn fx:id="tableViewPreis" prefWidth="44.0" text="preis" />
                     </columns>
                   </TableView>
                   <GridPane layoutY="407.0" prefHeight="160.0" prefWidth="250.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
