@@ -54,7 +54,7 @@ public class RechnungController {
     private void alsPDFSpeichern() throws IOException {
         PDDocument pdfdoc= new PDDocument();
         pdfdoc.addPage(new PDPage());
-        pdfdoc.save("C:\\Users\\Sample.pdf");
+        pdfdoc.save("C:\\Users\\public\\Sample.pdf");
         System.out.println("PDF created");
         pdfdoc.close();
     }
