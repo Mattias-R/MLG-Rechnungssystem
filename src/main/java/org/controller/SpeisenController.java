@@ -1,5 +1,6 @@
 package org.controller;
 
+import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Parameter;
 
@@ -358,6 +359,10 @@ public class SpeisenController {
                 for (Speisen speise : Speisen.speisenListe) {
                     if (speisenEingabe.getText().equals(speise.name) && tisch.konsumation.contains(speise)) {
                         tisch.artikelLoeschen(speise, anzahl);
+                        int x = speisenAnzeigeTafel.getSelectionModel().getSelectedIndex();
+                        System.out.println(x);
+                        tisch.data.remove(x);
+                        System.out.println(tisch.data);
                     }
                 }
             }

@@ -1,16 +1,17 @@
 package org.controller;
 
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
-import javafx.scene.control.Button;
-import javafx.scene.control.Control;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
+import org.klassen.Entry;
 import org.klassen.Getraenke;
 import org.klassen.Tisch;
 
@@ -21,9 +22,16 @@ public class GetraenkeController {
     public GridPane getraenkeGrid;
     public TextField getraenkeAnzahl;
     public TextField getraenkeEingabe;
+    public TableView getraenkeAnzeigeTafel;
+    public TableColumn<ObservableList<Entry>, String> tableViewAnzahl;
+    public TableColumn<ObservableList<Entry>, String> tableViewArtikel;
+    public TableColumn<ObservableList<Entry>, String> tableViewPreis;
 
     public void initialize(){
         getraenkeTischID.setText(Tisch.ausgewaehlterTisch);
+        tableViewAnzahl.setCellValueFactory(new PropertyValueFactory<>("anzahl"));
+        tableViewArtikel.setCellValueFactory(new PropertyValueFactory<>("artikel"));
+        tableViewPreis.setCellValueFactory(new PropertyValueFactory<>("preis"));
 
         int counter = 0;
         for(int i = 0; i <= 6; i++){
@@ -340,6 +348,7 @@ public class GetraenkeController {
                     if (getraenkeEingabe.getText().equals(getraenk.name)) {
                         tisch.artikelHinzufuegen(getraenk, anzahl);
                         tisch.showKonsumation();
+                        tisch.addToTableView(getraenkeAnzeigeTafel, getraenk, anzahl);
                     }
                 }
             }
