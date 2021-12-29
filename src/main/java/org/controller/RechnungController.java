@@ -1,5 +1,8 @@
 package org.controller;
 
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Paragraph;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -13,6 +16,9 @@ import javafx.scene.text.Text;
 import javafx.util.Duration;
 import org.klassen.Entry;
 import org.klassen.Tisch;
+import com.itextpdf.text.pdf.PdfWriter;
+
+import java.io.FileOutputStream;
 import java.io.IOException;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
@@ -60,10 +66,13 @@ public class RechnungController {
         //zweites
     }
     @FXML
-    private void alsPDFSpeichern() throws IOException {
-        PDDocument pdfdoc= new PDDocument();
-        pdfdoc.addPage(new PDPage());
-        pdfdoc.save("C:\\Users\\public\\Sample.pdf");
+    private void alsPDFSpeichern() throws IOException, DocumentException {
+        Document pdfdoc= new Document();
+        //pdfdoc.addPage(new PDPage());
+        PdfWriter writer = PdfWriter.getInstance(pdfdoc, new FileOutputStream("C:\\Users\\public\\sample2.pdf"));
+        pdfdoc.open();
+        pdfdoc.add(new Paragraph("If you're offered a seat on a rocket ship, don't ask what seat! Just get on."));
+        //pdfdoc.save("C:\\Users\\public\\Sample.pdf");
         System.out.println("PDF created");
         pdfdoc.close();
     }

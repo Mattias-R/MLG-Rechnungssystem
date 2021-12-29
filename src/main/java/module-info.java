@@ -3,6 +3,7 @@ module org.example {
     requires javafx.fxml;
     requires pdfbox;
     requires java.desktop;
+    requires itextpdf;
 
     opens org.controller to javafx.fxml;
     exports org.controller;
