@@ -18,12 +18,14 @@ import org.klassen.Entry;
 import org.klassen.Tisch;
 import com.itextpdf.text.pdf.PdfWriter;
 
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
+
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
 
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -34,7 +36,8 @@ public class RechnungController {
     public TableColumn<ObservableList<Entry>, String> tableViewAnzahl;
     public TableColumn<ObservableList<Entry>, String> tableViewArtikel;
     public TableColumn<ObservableList<Entry>, String> tableViewPreis;
-    public static int Rechnungsnummer = 0;
+    public static File file = new File("src/main/resources/org.textfiles/Rechnungsnummer.txt");
+    public static int Rechnungsnummer;
     public TextField umsatzID;
 
 
@@ -70,6 +73,9 @@ public class RechnungController {
     }
     @FXML
     private void alsPDFSpeichern() throws IOException, DocumentException {
+        BufferedReader reader = new BufferedReader(new FileReader(file));
+        Rechnungsnummer = Integer.parseInt(reader.readLine());
+        //System.out.println(Rechnungsnummer);
         double steuerSpeisen = 0;
         double steuerGetraenke = 0;
         Document pdfdoc= new Document();
@@ -95,7 +101,12 @@ public class RechnungController {
         //pdfdoc.save("C:\\Users\\public\\Sample.pdf");
         System.out.println("PDF created");
         Rechnungsnummer++;
-        System.out.println(Rechnungsnummer);
+        file.createNewFile();
+        BufferedWriter fileWriter = new BufferedWriter(new FileWriter(file));
+        fileWriter.write("" + Rechnungsnummer);
+
+        fileWriter.close();
+        reader.close();
         pdfdoc.close();
     }
 }
