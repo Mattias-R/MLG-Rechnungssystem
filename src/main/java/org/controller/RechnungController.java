@@ -34,6 +34,7 @@ public class RechnungController {
     public TableColumn<ObservableList<Entry>, String> tableViewAnzahl;
     public TableColumn<ObservableList<Entry>, String> tableViewArtikel;
     public TableColumn<ObservableList<Entry>, String> tableViewPreis;
+    public int Rechnungsnummer = 0;
 
 
     public void initialize(){
@@ -69,12 +70,13 @@ public class RechnungController {
     private void alsPDFSpeichern() throws IOException, DocumentException {
         Document pdfdoc= new Document();
         //pdfdoc.addPage(new PDPage());
-        PdfWriter writer = PdfWriter.getInstance(pdfdoc, new FileOutputStream("C:\\Users\\public\\sample2.pdf"));
+        PdfWriter writer = PdfWriter.getInstance(pdfdoc, new FileOutputStream("C:\\Users\\public\\Rechnungsnummer" + Rechnungsnummer + ".pdf"));
         pdfdoc.open();
         pdfdoc.add(new Paragraph("If you're offered a seat on a rocket ship, don't ask what seat! Just get on."));
         //pdfdoc.save("C:\\Users\\public\\Sample.pdf");
         System.out.println("PDF created");
         pdfdoc.close();
+        Rechnungsnummer++;
     }
 
     private void initClock() {
