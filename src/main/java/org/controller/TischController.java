@@ -38,7 +38,7 @@ public class TischController extends Component {
     public TextField datumZeit;
 
     public void initialize(){
-        initClock();
+        App.initClock(datumZeit);
         tableID.setText(Tisch.ausgewaehlterTisch);
     }
 
@@ -90,14 +90,4 @@ public class TischController extends Component {
         Tisch neu = new Tisch(Integer.parseInt(Tisch.ausgewaehlterTisch));
         Tisch.tischListe.add(neu);
     }
-
-    private void initClock() {
-        Timeline clock = new Timeline(new KeyFrame(javafx.util.Duration.ZERO, e -> {
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm:ss");
-            datumZeit.setText(LocalDateTime.now().format(formatter));
-        }), new KeyFrame(Duration.seconds(1)));
-        clock.setCycleCount(Animation.INDEFINITE);
-        clock.play();
-    }
-
 }

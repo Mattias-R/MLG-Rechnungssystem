@@ -47,7 +47,7 @@ public class SpeisenController {
 
 
     public void initialize(){
-        initClock();
+        App.initClock(datumZeit);
         //ObserverableList config
         //speisenAnzeigeTafel.setItems(data);
         tableViewAnzahl.setCellValueFactory(new PropertyValueFactory<>("anzahl"));
@@ -395,15 +395,6 @@ public class SpeisenController {
                 }
             }
         }
-    }
-
-    private void initClock() {
-        Timeline clock = new Timeline(new KeyFrame(javafx.util.Duration.ZERO, e -> {
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm:ss");
-            datumZeit.setText(LocalDateTime.now().format(formatter));
-        }), new KeyFrame(Duration.seconds(1)));
-        clock.setCycleCount(Animation.INDEFINITE);
-        clock.play();
     }
 
     public TextField getSpeisenEingabe() {

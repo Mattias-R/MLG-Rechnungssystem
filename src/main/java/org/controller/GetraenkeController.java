@@ -37,7 +37,7 @@ public class GetraenkeController {
 
 
     public void initialize(){
-        initClock();
+        App.initClock(datumZeit);
 
         getraenkeTischID.setText(Tisch.ausgewaehlterTisch);
         tableViewAnzahl.setCellValueFactory(new PropertyValueFactory<>("anzahl"));
@@ -377,14 +377,4 @@ public class GetraenkeController {
             }
         }
     }
-
-    private void initClock() {
-        Timeline clock = new Timeline(new KeyFrame(javafx.util.Duration.ZERO, e -> {
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm:ss");
-            datumZeit.setText(LocalDateTime.now().format(formatter));
-        }), new KeyFrame(Duration.seconds(1)));
-        clock.setCycleCount(Animation.INDEFINITE);
-        clock.play();
-    }
-
 }
