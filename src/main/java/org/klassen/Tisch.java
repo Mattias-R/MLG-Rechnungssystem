@@ -64,7 +64,7 @@ public class Tisch {
     }
 
     public void addToTableView(TableView x, Artikel artikel, int anzahl) {
-        x.setItems(data);
+        //x.setItems(data);
         this.data.add(new Entry(anzahl, artikel.name, artikel.preis));
 
         //tableAnzahl.setText("" + anzahl);

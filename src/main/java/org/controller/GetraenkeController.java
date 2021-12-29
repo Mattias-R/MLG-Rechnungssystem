@@ -345,8 +345,10 @@ public class GetraenkeController {
 
     public void deleteGetraenke(){
         int anzahl = Integer.parseInt(getraenkeAnzahl.getText());
+        int x = getraenkeAnzeigeTafel.getSelectionModel().getSelectedIndex();
         for (Tisch tisch : Tisch.tischListe) {
             if (tisch.tischnummer == Integer.parseInt(Tisch.ausgewaehlterTisch)) {
+                tisch.data.remove(x);
                 for (Getraenke getraenk : Getraenke.getraenkeList) {
                     if (getraenkeEingabe.getText().equals(getraenk.name) && tisch.konsumation.contains(getraenk)) {
                         tisch.artikelLoeschen(getraenk, anzahl);
