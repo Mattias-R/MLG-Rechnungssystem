@@ -28,6 +28,7 @@ import org.klassen.Entry;
 import org.klassen.Speisen;
 import org.klassen.Tisch;
 
+
 public class SpeisenController {
     Scene scene = App.getScene();
     public TextField speisenTableID;

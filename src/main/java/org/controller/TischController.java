@@ -1,5 +1,6 @@
 package org.controller;
 
+import java.awt.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -25,10 +26,11 @@ import javafx.util.Duration;
 import org.klassen.Getraenke;
 import org.klassen.Speisen;
 import org.klassen.Tisch;
+import javax.swing.*;
 
 
 
-public class TischController {
+public class TischController extends Component {
     Scene scene = App.getScene();
     GridPane designerMattias;
     Button peter = new Button("hallo");
@@ -53,7 +55,7 @@ public class TischController {
             //Speisen.createSpeisenList();
             Speisen.showSpeisenList();
         }else{
-            System.out.println("Wählen sie einen Tisch aus");
+            javax.swing.JOptionPane.showMessageDialog(this, "Sie müssen einen Tisch auswählen um fortzufahren!", "Tisch auswählen", JOptionPane.ERROR_MESSAGE);
         }
 
     }
@@ -63,7 +65,7 @@ public class TischController {
             App.setRoot("getraenke");
             Getraenke.printGetraenkeListe();
         }else{
-            System.out.println("Wählen sie einen Tisch aus");
+            javax.swing.JOptionPane.showMessageDialog(this, "Sie müssen einen Tisch auswählen um fortzufahren!", "Tisch auswählen", JOptionPane.ERROR_MESSAGE);
         }
     }
 
