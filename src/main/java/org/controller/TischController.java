@@ -4,10 +4,15 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.lang.reflect.Array;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
+import javafx.animation.Animation;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
@@ -16,6 +21,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Control;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import javafx.util.Duration;
 import org.klassen.Getraenke;
 import org.klassen.Speisen;
 import org.klassen.Tisch;
@@ -27,8 +33,10 @@ public class TischController {
     GridPane designerMattias;
     Button peter = new Button("hallo");
     public TextField tableID;
+    public TextField datumZeit;
 
     public void initialize(){
+        initClock();
         tableID.setText(Tisch.ausgewaehlterTisch);
     }
 
@@ -81,5 +89,13 @@ public class TischController {
         Tisch.tischListe.add(neu);
     }
 
+    private void initClock() {
+        Timeline clock = new Timeline(new KeyFrame(javafx.util.Duration.ZERO, e -> {
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm:ss");
+            datumZeit.setText(LocalDateTime.now().format(formatter));
+        }), new KeyFrame(Duration.seconds(1)));
+        clock.setCycleCount(Animation.INDEFINITE);
+        clock.play();
+    }
 
 }

@@ -3,7 +3,12 @@ package org.controller;
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Parameter;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
+import javafx.animation.Animation;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -18,6 +23,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
+import javafx.util.Duration;
 import org.klassen.Entry;
 import org.klassen.Speisen;
 import org.klassen.Tisch;
@@ -29,6 +35,7 @@ public class SpeisenController {
     public TextField speisenEingabe;
     public TextField speisenAnzahl;
     public TableView speisenAnzeigeTafel;
+    public TextField datumZeit;
     public TableColumn<ObservableList<Entry>, String> tableViewAnzahl;
     public TableColumn<ObservableList<Entry>, String> tableViewArtikel;
     public TableColumn<ObservableList<Entry>, String> tableViewPreis;
@@ -38,6 +45,7 @@ public class SpeisenController {
 
 
     public void initialize(){
+        initClock();
         //ObserverableList config
         //speisenAnzeigeTafel.setItems(data);
         tableViewAnzahl.setCellValueFactory(new PropertyValueFactory<>("anzahl"));
@@ -383,6 +391,15 @@ public class SpeisenController {
                 }
             }
         }
+    }
+
+    private void initClock() {
+        Timeline clock = new Timeline(new KeyFrame(javafx.util.Duration.ZERO, e -> {
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm:ss");
+            datumZeit.setText(LocalDateTime.now().format(formatter));
+        }), new KeyFrame(Duration.seconds(1)));
+        clock.setCycleCount(Animation.INDEFINITE);
+        clock.play();
     }
 
     public TextField getSpeisenEingabe() {

@@ -80,7 +80,7 @@
             </AnchorPane>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="7">
                <children>
-                  <TextField alignment="CENTER" disable="true" layoutX="16.0" layoutY="35.0" prefHeight="25.0" prefWidth="130.0" AnchorPane.bottomAnchor="20.0" />
+                  <TextField fx:id="datumZeit" alignment="CENTER" disable="true" layoutX="16.0" layoutY="35.0" prefHeight="25.0" prefWidth="130.0" AnchorPane.bottomAnchor="20.0" />
                   <Text layoutX="62.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Uhrzeit" AnchorPane.topAnchor="20.0" />
                </children>
             </AnchorPane>

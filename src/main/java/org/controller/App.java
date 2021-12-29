@@ -73,7 +73,7 @@ public class App extends Application {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        System.out.println(vorspeisenListe);
+        //System.out.println(vorspeisenListe);
         try (Scanner scanner = new Scanner(new File("src/main/resources/org.textfiles/Vorspeisen.txt"))) {
             while (scanner.hasNext()){
                 String speise = scanner.next();
@@ -84,7 +84,7 @@ public class App extends Application {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        System.out.println(vorspeisenListe);
+        //System.out.println(vorspeisenListe);
         try (Scanner scanner = new Scanner(new File("src/main/resources/org.textfiles/Nachspeisen.txt"))) {
             while (scanner.hasNext()){
                 String speise = scanner.next();
@@ -95,7 +95,7 @@ public class App extends Application {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        System.out.println(nachspeisenListe);
+        //System.out.println(nachspeisenListe);
         try (Scanner scanner = new Scanner(new File("src/main/resources/org.textfiles/Alkoholfrei.txt"))) {
             while (scanner.hasNext()){
                 String getraenk = scanner.next();
@@ -106,7 +106,7 @@ public class App extends Application {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        System.out.println(alkoholListe);
+        //System.out.println(alkoholListe);
         try (Scanner scanner = new Scanner(new File("src/main/resources/org.textfiles/Alkoholisch.txt"))) {
             while (scanner.hasNext()){
                 String getraenk = scanner.next();
@@ -117,7 +117,7 @@ public class App extends Application {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        System.out.println(alkoholfreiListe);
+        //System.out.println(alkoholfreiListe);
         try (Scanner scanner = new Scanner(new File("src/main/resources/org.textfiles/Kaffee.txt"))) {
             while (scanner.hasNext()){
                 String getraenk = scanner.next();

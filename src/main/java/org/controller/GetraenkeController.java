@@ -1,5 +1,8 @@
 package org.controller;
 
+import javafx.animation.Animation;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
@@ -11,11 +14,14 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
+import javafx.util.Duration;
 import org.klassen.Entry;
 import org.klassen.Getraenke;
 import org.klassen.Tisch;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class GetraenkeController {
     public TextField getraenkeTischID;
@@ -23,11 +29,14 @@ public class GetraenkeController {
     public TextField getraenkeAnzahl;
     public TextField getraenkeEingabe;
     public TableView getraenkeAnzeigeTafel;
+    public TextField datumZeit;
     public TableColumn<ObservableList<Entry>, String> tableViewAnzahl;
     public TableColumn<ObservableList<Entry>, String> tableViewArtikel;
     public TableColumn<ObservableList<Entry>, String> tableViewPreis;
 
     public void initialize(){
+        initClock();
+
         getraenkeTischID.setText(Tisch.ausgewaehlterTisch);
         tableViewAnzahl.setCellValueFactory(new PropertyValueFactory<>("anzahl"));
         tableViewArtikel.setCellValueFactory(new PropertyValueFactory<>("artikel"));
@@ -360,6 +369,15 @@ public class GetraenkeController {
                 }
             }
         }
+    }
+
+    private void initClock() {
+        Timeline clock = new Timeline(new KeyFrame(javafx.util.Duration.ZERO, e -> {
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm:ss");
+            datumZeit.setText(LocalDateTime.now().format(formatter));
+        }), new KeyFrame(Duration.seconds(1)));
+        clock.setCycleCount(Animation.INDEFINITE);
+        clock.play();
     }
 
 }

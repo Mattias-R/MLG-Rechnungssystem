@@ -1,5 +1,8 @@
 package org.controller;
 
+import javafx.animation.Animation;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
@@ -7,6 +10,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
+import javafx.util.Duration;
 import org.klassen.Entry;
 import org.klassen.Tisch;
 import java.io.IOException;
@@ -14,9 +18,12 @@ import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class RechnungController {
     public TextField rechnungTableID;
+    public TextField datumZeit;
     public TableView rechnungAnzeigeTafel;
     public TableColumn<ObservableList<Entry>, String> tableViewAnzahl;
     public TableColumn<ObservableList<Entry>, String> tableViewArtikel;
@@ -24,6 +31,8 @@ public class RechnungController {
 
 
     public void initialize(){
+        initClock();
+
         rechnungTableID.setText(Tisch.ausgewaehlterTisch);
         tableViewAnzahl.setCellValueFactory(new PropertyValueFactory<>("anzahl"));
         tableViewArtikel.setCellValueFactory(new PropertyValueFactory<>("artikel"));
@@ -59,5 +68,13 @@ public class RechnungController {
         pdfdoc.close();
     }
 
+    private void initClock() {
+        Timeline clock = new Timeline(new KeyFrame(javafx.util.Duration.ZERO, e -> {
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm:ss");
+            datumZeit.setText(LocalDateTime.now().format(formatter));
+        }), new KeyFrame(Duration.seconds(1)));
+        clock.setCycleCount(Animation.INDEFINITE);
+        clock.play();
+    }
 
 }
