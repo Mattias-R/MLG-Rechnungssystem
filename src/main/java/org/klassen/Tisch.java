@@ -94,15 +94,30 @@ public class Tisch {
     public void umsatzBerechnung(TextField textfield){
         double x = 0;
         for(Entry entry: data){
-            x += (entry.preis * entry.USTGB) * entry.anzahl;
+            x += entry.preis * entry.anzahl;
         }
-        //double y = Math.round(x*10)/10;
-        String ums = "" + x;
-        textfield.setText(ums);
-        System.out.printf("%.2f %n", x);
-        //System.out.println(y);
+        Formatter cost = new Formatter();
+        cost.format("%.2f", x);
+        textfield.setText(cost.toString());
     }
-
+    public double berechnungSpeisenSteuer(){
+        double x = 0;
+        for(Entry entry: data){
+            if(entry.USTGB == 0.1){
+                x += entry.preis * entry.USTGB * entry.anzahl;
+            }
+        }
+        return x;
+    }
+    public double berechnungGetraenkeSteuer(){
+        double x = 0;
+        for(Entry entry: data){
+            if(entry.USTGB == 0.2){
+                x += entry.preis * entry.USTGB * entry.anzahl;
+            }
+        }
+        return x;
+    }
 
 }
 

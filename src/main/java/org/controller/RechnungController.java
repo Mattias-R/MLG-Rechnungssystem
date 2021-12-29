@@ -34,7 +34,7 @@ public class RechnungController {
     public TableColumn<ObservableList<Entry>, String> tableViewAnzahl;
     public TableColumn<ObservableList<Entry>, String> tableViewArtikel;
     public TableColumn<ObservableList<Entry>, String> tableViewPreis;
-    public int Rechnungsnummer = 0;
+    public static int Rechnungsnummer = 0;
     public TextField umsatzID;
 
 
@@ -70,14 +70,32 @@ public class RechnungController {
     }
     @FXML
     private void alsPDFSpeichern() throws IOException, DocumentException {
+        double steuerSpeisen = 0;
+        double steuerGetraenke = 0;
         Document pdfdoc= new Document();
         //pdfdoc.addPage(new PDPage());
         PdfWriter writer = PdfWriter.getInstance(pdfdoc, new FileOutputStream("C:\\Users\\public\\Rechnungsnummer" + Rechnungsnummer + ".pdf"));
         pdfdoc.open();
-        pdfdoc.add(new Paragraph("If you're offered a seat on a rocket ship, don't ask what seat! Just get on."));
+        pdfdoc.add(new Paragraph("you have to pay " + umsatzID.getText() ));
+        pdfdoc.add(new Paragraph("Now it is " + datumZeit.getText() ));
+        int i = 0;
+        for (Tisch tisch : Tisch.tischListe) {
+            if (tisch.tischnummer == Integer.parseInt(Tisch.ausgewaehlterTisch)) {
+                    for(Entry entry: tisch.data){
+                        pdfdoc.add(new Paragraph("" + entry.anzahl + "x, " + entry.artikel +", inkl. " + entry.USTGB*100 +"% steuer"));
+                    }
+                    steuerGetraenke = tisch.berechnungGetraenkeSteuer();
+                    steuerSpeisen = tisch.berechnungSpeisenSteuer();
+                    tisch.data.clear();
+                }
+            }
+        pdfdoc.add(new Paragraph("Speisensteuer...." + steuerSpeisen ));
+        pdfdoc.add(new Paragraph("getraenkesteuer.... " + steuerGetraenke ));
+
         //pdfdoc.save("C:\\Users\\public\\Sample.pdf");
         System.out.println("PDF created");
-        pdfdoc.close();
         Rechnungsnummer++;
+        System.out.println(Rechnungsnummer);
+        pdfdoc.close();
     }
 }
