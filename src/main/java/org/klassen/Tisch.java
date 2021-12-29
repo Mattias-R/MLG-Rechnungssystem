@@ -6,6 +6,7 @@ import javafx.collections.ObservableList;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import org.controller.SpeisenController;
 
 import java.security.KeyStore;
@@ -63,10 +64,10 @@ public class Tisch {
         //SpeisenController.data.add(new Entry("test","test","test"));
     }
 
-    public void addToTableView(TableView x, Artikel artikel, int anzahl) {
+    public void addToTableView(TableView x, Artikel artikel, int anzahl, double USTGB) {
         //x.setItems(data);
-        this.data.add(new Entry(anzahl, artikel.name, artikel.preis));
-
+        this.data.add(new Entry(anzahl, artikel.name, artikel.preis, USTGB));
+        //this.umsatz.add(new Entry(anzahl, artikel.name, artikel.preis, USTGB));
         //tableAnzahl.setText("" + anzahl);
         //tableArtikel.setText(artikel.name);
         //tablePreis.setText("" + artikel.preis);
@@ -90,6 +91,18 @@ public class Tisch {
         }
         return null;
     }
+    public void umsatzBerechnung(TextField textfield){
+        double x = 0;
+        for(Entry entry: data){
+            x += (entry.preis * entry.USTGB) * entry.anzahl;
+        }
+        //double y = Math.round(x*10)/10;
+        String ums = "" + x;
+        textfield.setText(ums);
+        System.out.printf("%.2f %n", x);
+        //System.out.println(y);
+    }
+
 
 }
 

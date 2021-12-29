@@ -33,6 +33,8 @@ public class GetraenkeController {
     public TableColumn<ObservableList<Entry>, String> tableViewAnzahl;
     public TableColumn<ObservableList<Entry>, String> tableViewArtikel;
     public TableColumn<ObservableList<Entry>, String> tableViewPreis;
+    public TextField umsatzID;
+
 
     public void initialize(){
         initClock();
@@ -45,6 +47,7 @@ public class GetraenkeController {
         for (Tisch tisch : Tisch.tischListe) {
             if (tisch.tischnummer == Integer.parseInt(Tisch.ausgewaehlterTisch)) {
                 tisch.showTableView(getraenkeAnzeigeTafel);
+                tisch.umsatzBerechnung(umsatzID);
             }
         }
 
@@ -352,6 +355,7 @@ public class GetraenkeController {
                 for (Getraenke getraenk : Getraenke.getraenkeList) {
                     if (getraenkeEingabe.getText().equals(getraenk.name) && tisch.konsumation.contains(getraenk)) {
                         tisch.artikelLoeschen(getraenk, anzahl);
+                        tisch.umsatzBerechnung(umsatzID);
                     }
                 }
             }
@@ -366,7 +370,8 @@ public class GetraenkeController {
                     if (getraenkeEingabe.getText().equals(getraenk.name)) {
                         tisch.artikelHinzufuegen(getraenk, anzahl);
                         tisch.showKonsumation();
-                        tisch.addToTableView(getraenkeAnzeigeTafel, getraenk, anzahl);
+                        tisch.addToTableView(getraenkeAnzeigeTafel, getraenk, anzahl, 1.20);
+                        tisch.umsatzBerechnung(umsatzID);
                     }
                 }
             }

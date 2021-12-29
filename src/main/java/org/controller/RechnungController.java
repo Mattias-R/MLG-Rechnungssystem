@@ -35,6 +35,7 @@ public class RechnungController {
     public TableColumn<ObservableList<Entry>, String> tableViewArtikel;
     public TableColumn<ObservableList<Entry>, String> tableViewPreis;
     public int Rechnungsnummer = 0;
+    public TextField umsatzID;
 
 
     public void initialize(){
@@ -48,6 +49,7 @@ public class RechnungController {
         for (Tisch tisch : Tisch.tischListe) {
             if (tisch.tischnummer == Integer.parseInt(Tisch.ausgewaehlterTisch)) {
                 tisch.showTableView(rechnungAnzeigeTafel);
+                tisch.umsatzBerechnung(umsatzID);
             }
         }
     }

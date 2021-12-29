@@ -40,6 +40,7 @@ public class SpeisenController {
     public TableColumn<ObservableList<Entry>, String> tableViewAnzahl;
     public TableColumn<ObservableList<Entry>, String> tableViewArtikel;
     public TableColumn<ObservableList<Entry>, String> tableViewPreis;
+    public TextField umsatzID;
 
     //public static ObservableList<Entry> data = FXCollections.observableArrayList();
 
@@ -53,10 +54,10 @@ public class SpeisenController {
         tableViewArtikel.setCellValueFactory(new PropertyValueFactory<>("artikel"));
         tableViewPreis.setCellValueFactory(new PropertyValueFactory<>("preis"));
 
-
         for (Tisch tisch : Tisch.tischListe) {
             if (tisch.tischnummer == Integer.parseInt(Tisch.ausgewaehlterTisch)) {
                 tisch.showTableView(speisenAnzeigeTafel);
+                tisch.umsatzBerechnung(umsatzID);
             }
         }
 
@@ -370,6 +371,7 @@ public class SpeisenController {
                 for (Speisen speise : Speisen.speisenListe) {
                     if (speisenEingabe.getText().equals(speise.name) && tisch.konsumation.contains(speise)) {
                         tisch.artikelLoeschen(speise, anzahl);
+                        tisch.umsatzBerechnung(umsatzID);
                     }
                 }
             }
@@ -384,7 +386,8 @@ public class SpeisenController {
                     if (speisenEingabe.getText().equals(speise.name)) {
                         tisch.artikelHinzufuegen(speise, anzahl);
                         tisch.showKonsumation();
-                        tisch.addToTableView(speisenAnzeigeTafel, speise, anzahl);
+                        tisch.addToTableView(speisenAnzeigeTafel, speise, anzahl, 1.10);
+                        tisch.umsatzBerechnung(umsatzID);
                         //Tisch.teest(data, speise, anzahl);
                         //Entry.createEntryInList(data, "anzahl", "name", "preis");
                         //Entry.addItemToList(data, anzahl, speise.name, speise.preis);
