@@ -15,14 +15,6 @@ public class Getraenke extends Artikel {
     }
 
     public static void createGetraenkeList(String getraenkeString){
-        /*for(int i = 0; i < App.hauptspeisenListe.size(); i++){
-            int param = App.hauptspeisenListe.get(i).toString().indexOf(";");
-            String name = App.hauptspeisenListe.get(i).toString().replace(".", " ").substring(0, param);
-            Double preis = Double.parseDouble(App.hauptspeisenListe.get(i).toString().replace(".", " ").replace(",",".").substring(param+1));
-            Speisen neu = new Speisen(name, preis);
-            speisenListe.add(neu);
-        }*/
-
         getraenkeString.replace(",",".");
         String[] getraenkeArray = getraenkeString.split(";");
         Getraenke getraenk = new Getraenke(getraenkeArray[0].replace("."," "), Double.parseDouble(getraenkeArray[1].replace(",",".")), Boolean.parseBoolean(getraenkeArray[2]));

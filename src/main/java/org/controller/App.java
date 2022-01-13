@@ -77,77 +77,6 @@ public class App extends Application {
         addGetraenkeFromScanner("src/main/resources/org.textfiles/Alkoholfrei.txt",alkoholfreiListe);
         addGetraenkeFromScanner("src/main/resources/org.textfiles/Alkoholisch.txt",alkoholListe);
         addGetraenkeFromScanner("src/main/resources/org.textfiles/Kaffee.txt",kaffeeListe);
-
-        /*
-        try (Scanner scanner = new Scanner(new File("src/main/resources/org.textfiles/Hauptspeisen.txt"))) {
-            while (scanner.hasNext()){
-                String speise = scanner.next();
-                hauptspeisenListe.add(speise);
-                //System.out.println(scanner.next());
-                Speisen.createSpeisenList(speise);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        //System.out.println(vorspeisenListe);
-        try (Scanner scanner = new Scanner(new File("src/main/resources/org.textfiles/Vorspeisen.txt"))) {
-            while (scanner.hasNext()){
-                String speise = scanner.next();
-                vorspeisenListe.add(speise);
-                //System.out.println(scanner.next());
-                Speisen.createSpeisenList(speise);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        //System.out.println(vorspeisenListe);
-        try (Scanner scanner = new Scanner(new File("src/main/resources/org.textfiles/Nachspeisen.txt"))) {
-            while (scanner.hasNext()){
-                String speise = scanner.next();
-                nachspeisenListe.add(speise);
-                //System.out.println(scanner.next());
-                Speisen.createSpeisenList(speise);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        //System.out.println(nachspeisenListe);
-        try (Scanner scanner = new Scanner(new File("src/main/resources/org.textfiles/Alkoholfrei.txt"))) {
-            while (scanner.hasNext()){
-                String getraenk = scanner.next();
-                alkoholfreiListe.add(getraenk);
-                //System.out.println(scanner.next());
-                Getraenke.createGetraenkeList(getraenk);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        //System.out.println(alkoholListe);
-        try (Scanner scanner = new Scanner(new File("src/main/resources/org.textfiles/Alkoholisch.txt"))) {
-            while (scanner.hasNext()){
-                String getraenk = scanner.next();
-                alkoholListe.add(getraenk);
-                //System.out.println(scanner.next());
-                Getraenke.createGetraenkeList(getraenk);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        //System.out.println(alkoholfreiListe);
-        try (Scanner scanner = new Scanner(new File("src/main/resources/org.textfiles/Kaffee.txt"))) {
-            while (scanner.hasNext()){
-                String getraenk = scanner.next();
-                kaffeeListe.add(getraenk);
-                Getraenke.createGetraenkeList(getraenk);
-                //System.out.println(scanner.next());
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        //System.out.println(kaffeeListe);
-        //System.out.println(Speisen.speisenListe);
-        */
-
     }
 
     public static void initClock(TextField textField) {
@@ -174,7 +103,6 @@ public class App extends Application {
             while (scanner.hasNext()){
                 String speise = scanner.next();
                 list.add(speise);
-                //System.out.println(scanner.next());
                 Speisen.createSpeisenList(speise);
             }
         } catch (Exception e) {

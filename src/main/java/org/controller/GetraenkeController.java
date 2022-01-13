@@ -1,8 +1,5 @@
 package org.controller;
 
-import javafx.animation.Animation;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
@@ -14,14 +11,10 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
-import javafx.util.Duration;
 import org.klassen.Entry;
 import org.klassen.Getraenke;
 import org.klassen.Tisch;
-
 import java.io.IOException;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 public class GetraenkeController {
     public TextField getraenkeTischID;
@@ -68,7 +61,6 @@ public class GetraenkeController {
                         @Override
                         public void handle(ActionEvent actionEvent) {
                             getraenkeEingabe.setText(button.getText());
-                            //System.out.println(button.getText());
                         }
                     });
 
@@ -94,7 +86,6 @@ public class GetraenkeController {
 
 
                 } catch(Exception e){
-                    //System.out.println(e);
                 }
 
                 counter++;
@@ -111,13 +102,8 @@ public class GetraenkeController {
         for(int i = 0; i <= 6; i++) {
             for (int y = 0; y < 4; y++) {
                 try{
-                    //System.out.println(y + "" + i);
                     getraenkeGrid.getChildren().clear();
-                    // speisenGrid.getChildren().remove(i,y);
                 }catch (Exception e) {
-
-                    //System.out.println(e);
-                    //System.out.println(y + "hi" + i);
                 }
 
             }
@@ -129,7 +115,6 @@ public class GetraenkeController {
                 AnchorPane zentrierFeld = new AnchorPane();
                 Button button = new Button();
 
-
                 try {
                     //set button text
                     int param = App.alkoholfreiListe.get(counter).toString().indexOf(";");
@@ -140,7 +125,6 @@ public class GetraenkeController {
                         @Override
                         public void handle(ActionEvent actionEvent) {
                             getraenkeEingabe.setText(button.getText());
-                            //System.out.println(button.getText());
                         }
                     });
 
@@ -166,7 +150,6 @@ public class GetraenkeController {
 
 
                 } catch(Exception e){
-                    //System.out.println(e);
                 }
 
                 counter++;
@@ -181,13 +164,8 @@ public class GetraenkeController {
         for(int i = 0; i <= 6; i++) {
             for (int y = 0; y < 4; y++) {
                 try{
-                    //System.out.println(y + "" + i);
                     getraenkeGrid.getChildren().clear();
-                    // speisenGrid.getChildren().remove(i,y);
                 }catch (Exception e) {
-
-                    //System.out.println(e);
-                    //System.out.println(y + "hi" + i);
                 }
 
             }
@@ -210,7 +188,6 @@ public class GetraenkeController {
                         @Override
                         public void handle(ActionEvent actionEvent) {
                             getraenkeEingabe.setText(button.getText());
-                            //System.out.println(button.getText());
                         }
                     });
 
@@ -234,9 +211,7 @@ public class GetraenkeController {
                     zentrierFeld.setTopAnchor(button, 10.);
                     getraenkeGrid.setAlignment(Pos.CENTER);
 
-
                 } catch(Exception e){
-                    //System.out.println(e);
                 }
 
                 counter++;
@@ -251,13 +226,9 @@ public class GetraenkeController {
         for(int i = 0; i <= 6; i++) {
             for (int y = 0; y < 4; y++) {
                 try{
-                    //System.out.println(y + "" + i);
                     getraenkeGrid.getChildren().clear();
-                    // speisenGrid.getChildren().remove(i,y);
                 }catch (Exception e) {
 
-                    //System.out.println(e);
-                    //System.out.println(y + "hi" + i);
                 }
 
             }
@@ -269,7 +240,6 @@ public class GetraenkeController {
                 AnchorPane zentrierFeld = new AnchorPane();
                 Button button = new Button();
 
-
                 try {
                     //set button text
                     int param = App.kaffeeListe.get(counter).toString().indexOf(";");
@@ -280,10 +250,8 @@ public class GetraenkeController {
                         @Override
                         public void handle(ActionEvent actionEvent) {
                             getraenkeEingabe.setText(button.getText());
-                            //System.out.println(button.getText());
                         }
                     });
-
                     //poistion hierarchy
                     button.setMinSize(156,120);
                     VBox gridbox = new VBox();
@@ -296,22 +264,18 @@ public class GetraenkeController {
                     }else{
                         gridbox.setAlignment(Pos.TOP_CENTER);
                     }
-
                     // Centralized buttons in grid
                     zentrierFeld.setBottomAnchor(button, 10.);
                     zentrierFeld.setLeftAnchor(button, 10.);
                     zentrierFeld.setRightAnchor(button, 10.);
                     zentrierFeld.setTopAnchor(button, 10.);
                     getraenkeGrid.setAlignment(Pos.CENTER);
-
-
                 } catch(Exception e){
-                    //System.out.println(e);
+
                 }
 
                 counter++;
             }
-
 
         }
     }
@@ -320,7 +284,6 @@ public class GetraenkeController {
 
     @FXML
     public void switchToSpeisen() throws IOException {
-
         App.setRoot("speisen");
     }
     @FXML
@@ -330,14 +293,10 @@ public class GetraenkeController {
     @FXML
     private void switchToSecondary() throws IOException {
         App.setRoot("tisch");
-        //hallo goran
-        //zweites
     }
     @FXML
     private void switchToRechnung() throws IOException {
         App.setRoot("rechnung");
-        //hallo goran
-        //zweites
     }
 
     public void selectQuantityGetraenke(Event event){
@@ -345,14 +304,14 @@ public class GetraenkeController {
     }
 
     public void deleteGetraenke(){
-        int anzahl = Integer.parseInt(getraenkeAnzahl.getText());
+        //int anzahl = Integer.parseInt(getraenkeAnzahl.getText());
         int x = getraenkeAnzeigeTafel.getSelectionModel().getSelectedIndex();
         for (Tisch tisch : Tisch.tischListe) {
             if (tisch.tischnummer == Integer.parseInt(Tisch.ausgewaehlterTisch)) {
                 tisch.data.remove(x);
                 for (Getraenke getraenk : Getraenke.getraenkeList) {
                     if (getraenkeEingabe.getText().equals(getraenk.name) && tisch.konsumation.contains(getraenk)) {
-                        tisch.artikelLoeschen(getraenk, anzahl);
+                        //tisch.artikelLoeschen(getraenk, anzahl);
                     }
                 }
             }

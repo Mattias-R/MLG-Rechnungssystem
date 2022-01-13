@@ -3,31 +3,18 @@ package org.controller;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
-import javafx.animation.Animation;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.text.Text;
-import javafx.util.Duration;
 import org.klassen.Entry;
 import org.klassen.Tisch;
 import com.itextpdf.text.pdf.PdfWriter;
-
 import java.io.*;
-
-import org.apache.pdfbox.pdmodel.PDDocument;
-import org.apache.pdfbox.pdmodel.PDPage;
-
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+
 
 public class RechnungController {
     public TextField rechnungTableID;
@@ -75,11 +62,9 @@ public class RechnungController {
     private void alsPDFSpeichern() throws IOException, DocumentException {
         BufferedReader reader = new BufferedReader(new FileReader(file));
         Rechnungsnummer = Integer.parseInt(reader.readLine());
-        //System.out.println(Rechnungsnummer);
         double steuerSpeisen = 0;
         double steuerGetraenke = 0;
         Document pdfdoc= new Document();
-        //pdfdoc.addPage(new PDPage());
         PdfWriter writer = PdfWriter.getInstance(pdfdoc, new FileOutputStream("C:\\Users\\public\\Rechnungsnummer" + Rechnungsnummer + ".pdf"));
         pdfdoc.open();
         pdfdoc.add(new Paragraph("you have to pay " + umsatzID.getText() ));
@@ -97,8 +82,6 @@ public class RechnungController {
             }
         pdfdoc.add(new Paragraph("Speisensteuer...." + steuerSpeisen ));
         pdfdoc.add(new Paragraph("getraenkesteuer.... " + steuerGetraenke ));
-
-        //pdfdoc.save("C:\\Users\\public\\Sample.pdf");
         System.out.println("PDF created");
         Rechnungsnummer++;
         file.createNewFile();

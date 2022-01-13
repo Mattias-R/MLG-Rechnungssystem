@@ -1,16 +1,6 @@
 package org.controller;
 
-import java.io.File;
 import java.io.IOException;
-import java.lang.reflect.Parameter;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-
-import javafx.animation.Animation;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
@@ -23,7 +13,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
-import javafx.util.Duration;
 import org.klassen.Entry;
 import org.klassen.Speisen;
 import org.klassen.Tisch;
@@ -41,14 +30,8 @@ public class SpeisenController {
     public TableColumn<ObservableList<Entry>, String> tableViewArtikel;
     public TableColumn<ObservableList<Entry>, String> tableViewPreis;
 
-    //public static ObservableList<Entry> data = FXCollections.observableArrayList();
-
-
-
     public void initialize(){
         App.initClock(datumZeit);
-        //ObserverableList config
-        //speisenAnzeigeTafel.setItems(data);
         tableViewAnzahl.setCellValueFactory(new PropertyValueFactory<>("anzahl"));
         tableViewArtikel.setCellValueFactory(new PropertyValueFactory<>("artikel"));
         tableViewPreis.setCellValueFactory(new PropertyValueFactory<>("preis"));
@@ -59,9 +42,6 @@ public class SpeisenController {
             }
         }
 
-        //Entry ente = new Entry("1","test","5");
-        //data.add(ente);
-        //data.add(new Entry("test","test","test"));
         //----------------------------------------------
         //set tableID to Tablenumber
         speisenTableID.setText(Tisch.ausgewaehlterTisch);
@@ -72,7 +52,6 @@ public class SpeisenController {
                 AnchorPane zentrierFeld = new AnchorPane();
                 Button button = new Button();
 
-
                 try {
                     //set button text
                     int param = App.hauptspeisenListe.get(counter).toString().indexOf(";");
@@ -80,21 +59,12 @@ public class SpeisenController {
                     /**
                      *
                      */
-                    //test this is for the Artikel object
-                    //String test =  App.hauptspeisenListe.get(counter).toString().replace(".", " ").replace(",",".").substring(param+1);
 
                     //button functions
                     button.setOnAction(new EventHandler<ActionEvent>() {
                         @Override
                         public void handle(ActionEvent actionEvent) {
                             speisenEingabe.setText(button.getText());
-                            //System.out.println(button.getText());
-                            //test this is for the Artikel object
-                            /**
-                             *
-                             */
-                            //Speisen newFood = new Speisen(button.getText(), Double.parseDouble(test));
-                            //System.out.println(newFood.preis + " " + newFood.name);
                         }
                     });
 
@@ -110,7 +80,6 @@ public class SpeisenController {
                     }else{
                         gridbox.setAlignment(Pos.TOP_CENTER);
                     }
-
                     // Centralized buttons in grid
                     zentrierFeld.setBottomAnchor(button, 10.);
                     zentrierFeld.setLeftAnchor(button, 10.);
@@ -118,14 +87,11 @@ public class SpeisenController {
                     zentrierFeld.setTopAnchor(button, 10.);
                     speisenGrid.setAlignment(Pos.CENTER);
 
-
                 } catch(Exception e){
-                    //System.out.println(e);
-                }
 
+                }
                 counter++;
             }
-
         }
     }
 
@@ -134,13 +100,9 @@ public class SpeisenController {
         for(int i = 0; i <= 6; i++) {
             for (int y = 0; y < 4; y++) {
                 try{
-                    //System.out.println(y + "" + i);
                     speisenGrid.getChildren().clear();
-                   // speisenGrid.getChildren().remove(i,y);
                 }catch (Exception e) {
 
-                    //System.out.println(e);
-                    //System.out.println(y + "hi" + i);
                 }
 
             }
@@ -151,7 +113,6 @@ public class SpeisenController {
                 //create AnchorPane and Buttons
                 AnchorPane zentrierFeld = new AnchorPane();
                 Button button = new Button();
-
 
                 try {
                     //set button text
@@ -163,10 +124,8 @@ public class SpeisenController {
                         @Override
                         public void handle(ActionEvent actionEvent) {
                             speisenEingabe.setText(button.getText());
-                            //System.out.println(button.getText());
                         }
                     });
-
                     //poistion hierarchy
                     button.setMinSize(156,120);
                     VBox gridbox = new VBox();
@@ -179,17 +138,14 @@ public class SpeisenController {
                     }else{
                         gridbox.setAlignment(Pos.TOP_CENTER);
                     }
-
                     // Centralized buttons in grid
                     zentrierFeld.setBottomAnchor(button, 10.);
                     zentrierFeld.setLeftAnchor(button, 10.);
                     zentrierFeld.setRightAnchor(button, 10.);
                     zentrierFeld.setTopAnchor(button, 10.);
                     speisenGrid.setAlignment(Pos.CENTER);
-
-
                 } catch(Exception e){
-                    //System.out.println(e);
+
                 }
 
                 counter++;
@@ -204,13 +160,11 @@ public class SpeisenController {
         for(int i = 0; i <= 6; i++) {
             for (int y = 0; y < 4; y++) {
                 try{
-                    //System.out.println(y + "" + i);
+
                     speisenGrid.getChildren().clear();
-                    // speisenGrid.getChildren().remove(i,y);
+
                 }catch (Exception e) {
 
-                    //System.out.println(e);
-                    //System.out.println(y + "hi" + i);
                 }
 
             }
@@ -222,7 +176,6 @@ public class SpeisenController {
                 AnchorPane zentrierFeld = new AnchorPane();
                 Button button = new Button();
 
-
                 try {
                     //set button text
                     int param = App.hauptspeisenListe.get(counter).toString().indexOf(";");
@@ -233,7 +186,6 @@ public class SpeisenController {
                         @Override
                         public void handle(ActionEvent actionEvent) {
                             speisenEingabe.setText(button.getText());
-                            //System.out.println(button.getText());
                         }
                     });
 
@@ -259,13 +211,11 @@ public class SpeisenController {
 
 
                 } catch(Exception e){
-                    //System.out.println(e);
+
                 }
 
                 counter++;
             }
-
-
         }
     }
 
@@ -274,15 +224,10 @@ public class SpeisenController {
         for(int i = 0; i <= 6; i++) {
             for (int y = 0; y < 4; y++) {
                 try{
-                    //System.out.println(y + "" + i);
                     speisenGrid.getChildren().clear();
-                    // speisenGrid.getChildren().remove(i,y);
                 }catch (Exception e) {
 
-                    //System.out.println(e);
-                    //System.out.println(y + "hi" + i);
                 }
-
             }
         }
 
@@ -303,7 +248,6 @@ public class SpeisenController {
                         @Override
                         public void handle(ActionEvent actionEvent) {
                             speisenEingabe.setText(button.getText());
-                            //System.out.println(button.getText());
                         }
                     });
 
@@ -326,16 +270,11 @@ public class SpeisenController {
                     zentrierFeld.setRightAnchor(button, 10.);
                     zentrierFeld.setTopAnchor(button, 10.);
                     speisenGrid.setAlignment(Pos.CENTER);
-
-
                 } catch(Exception e){
-                    //System.out.println(e);
-                }
 
+                }
                 counter++;
             }
-
-
         }
     }
 
@@ -361,14 +300,14 @@ public class SpeisenController {
     }
 
     public void deleteSpeisen(){
-        int anzahl = Integer.parseInt(speisenAnzahl.getText());
+        //int anzahl = Integer.parseInt(speisenAnzahl.getText());
         int x = speisenAnzeigeTafel.getSelectionModel().getSelectedIndex();
         for (Tisch tisch : Tisch.tischListe) {
             if (tisch.tischnummer == Integer.parseInt(Tisch.ausgewaehlterTisch)) {
                 tisch.data.remove(x);
                 for (Speisen speise : Speisen.speisenListe) {
                     if (speisenEingabe.getText().equals(speise.name) && tisch.konsumation.contains(speise)) {
-                        tisch.artikelLoeschen(speise, anzahl);
+                        //tisch.artikelLoeschen(speise, anzahl);
                     }
                 }
             }
@@ -384,9 +323,6 @@ public class SpeisenController {
                         tisch.artikelHinzufuegen(speise, anzahl);
                         tisch.showKonsumation();
                         tisch.addToTableView(speisenAnzeigeTafel, speise, anzahl, 0.1);
-                        //Tisch.teest(data, speise, anzahl);
-                        //Entry.createEntryInList(data, "anzahl", "name", "preis");
-                        //Entry.addItemToList(data, anzahl, speise.name, speise.preis);
                     }
                 }
             }

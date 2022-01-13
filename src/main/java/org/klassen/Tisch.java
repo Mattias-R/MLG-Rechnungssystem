@@ -3,13 +3,8 @@ package org.klassen;
 import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import org.controller.SpeisenController;
-
-import java.security.KeyStore;
 import java.util.*;
 
 public class Tisch {
@@ -65,19 +60,7 @@ public class Tisch {
     }
 
     public void addToTableView(TableView x, Artikel artikel, int anzahl, double USTGB) {
-        //x.setItems(data);
         this.data.add(new Entry(anzahl, artikel.name, artikel.preis, USTGB));
-        //this.umsatz.add(new Entry(anzahl, artikel.name, artikel.preis, USTGB));
-        //tableAnzahl.setText("" + anzahl);
-        //tableArtikel.setText(artikel.name);
-        //tablePreis.setText("" + artikel.preis);
-        //Entry newEntry = new Entry("" + anzahl, artikel.name, "" + artikel.preis);
-        //tableView.getColumns().addAll(tableAnzahl, tableArtikel, tablePreis);
-        //tableView.getItems().add(new Entry("test","test","test"));
-        //tableView.setItems(SpeisenController.data);
-        //SpeisenController.data.add(new Entry("test","test","test"));
-        //data.add(newEntry);
-        //tableView.setItems(data);
     }
     public void showTableView(TableView x){
         x.setItems(data);
@@ -86,7 +69,6 @@ public class Tisch {
     public Artikel showKonsumation(){
         int i = 0;
         for(Artikel x : konsumation){
-            //System.out.println(konsumationAnzahl.get(i) + " x " +x.name + " " + x.preis);
             i++;
         }
         return null;
