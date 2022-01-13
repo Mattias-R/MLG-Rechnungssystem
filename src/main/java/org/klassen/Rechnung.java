@@ -24,7 +24,7 @@ public class Rechnung {
             if(rechnung.contains(entry)){
                 rechnung.get(rechnung.indexOf(entry)).anzahl += entry.anzahl;
             } else {
-                rechnung.add(entry);
+                rechnung.add(new Entry(entry.anzahl, entry.artikel, entry.preis, entry.USTGB));
             }
         }
 
