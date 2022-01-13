@@ -10,6 +10,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import org.klassen.Entry;
+import org.klassen.Rechnung;
 import org.klassen.Tisch;
 import com.itextpdf.text.pdf.PdfWriter;
 import java.io.*;
@@ -38,7 +39,8 @@ public class RechnungController {
 
         for (Tisch tisch : Tisch.tischListe) {
             if (tisch.tischnummer == Integer.parseInt(Tisch.ausgewaehlterTisch)) {
-                tisch.showTableView(rechnungAnzeigeTafel);
+                //tisch.showTableView(rechnungAnzeigeTafel);
+                Rechnung.zusammenFuegen(tisch, rechnungAnzeigeTafel);
                 tisch.umsatzBerechnung(umsatzID);
             }
         }

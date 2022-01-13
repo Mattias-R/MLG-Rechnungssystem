@@ -3,6 +3,7 @@ package org.klassen;
 import javafx.collections.ObservableList;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Entry {
     public int anzahl;
@@ -32,6 +33,7 @@ public class Entry {
     public static void addItemToList(ObservableList data, int anzahl, String artikel, double preis, double USTGB){
         data.add(new Entry(anzahl, artikel, preis, USTGB));
     }
+
 
 
 }
