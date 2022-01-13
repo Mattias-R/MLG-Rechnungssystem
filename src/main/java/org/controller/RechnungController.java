@@ -48,17 +48,18 @@ public class RechnungController {
 
     @FXML
     public void switchToSpeisen() throws IOException {
+        Rechnung.rechnung.clear();
         App.setRoot("speisen");
     }
     @FXML
     public void switchToGetraenke() throws IOException{
+        Rechnung.rechnung.clear();
         App.setRoot("getraenke");
     }
     @FXML
     private void switchToSecondary() throws IOException {
+        Rechnung.rechnung.clear();
         App.setRoot("tisch");
-        //hallo goran
-        //zweites
     }
     @FXML
     private void alsPDFSpeichern() throws IOException, DocumentException {

@@ -29,6 +29,7 @@ public class GetraenkeController {
 
 
     public void initialize(){
+        getraenkeAnzahl.setText("1");
         App.initClock(datumZeit);
 
         getraenkeTischID.setText(Tisch.ausgewaehlterTisch);

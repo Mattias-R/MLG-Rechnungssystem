@@ -31,6 +31,7 @@ public class SpeisenController {
     public TableColumn<ObservableList<Entry>, String> tableViewPreis;
 
     public void initialize(){
+        speisenAnzahl.setText("1");
         App.initClock(datumZeit);
         tableViewAnzahl.setCellValueFactory(new PropertyValueFactory<>("anzahl"));
         tableViewArtikel.setCellValueFactory(new PropertyValueFactory<>("artikel"));
@@ -38,7 +39,7 @@ public class SpeisenController {
 
         for (Tisch tisch : Tisch.tischListe) {
             if (tisch.tischnummer == Integer.parseInt(Tisch.ausgewaehlterTisch)) {
-                tisch.showTableView(speisenAnzeigeTafel);
+               tisch.showTableView(speisenAnzeigeTafel);
             }
         }
 

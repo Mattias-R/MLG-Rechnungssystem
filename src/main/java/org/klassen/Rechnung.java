@@ -6,6 +6,9 @@ import javafx.scene.control.TableView;
 
 import java.util.Objects;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 public class Rechnung {
 
     public int summe;

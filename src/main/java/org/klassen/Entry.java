@@ -18,6 +18,18 @@ public class Entry {
         this.USTGB = USTGB;
     }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(artikel);
+    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Entry entry = (Entry) o;
+        return artikel == entry.artikel;
+    }
+
     //without getter the observarble list doesnt work
     public int getAnzahl() {
         return anzahl;
