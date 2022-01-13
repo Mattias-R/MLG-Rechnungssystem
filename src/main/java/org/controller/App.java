@@ -42,7 +42,7 @@ public class App extends Application {
     // set minimum window to 1440x1080
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("primary"), 1440, 1080);
+        scene = new Scene(loadFXML("tisch"), 1440, 1080);
         stage.setMaximized(true);
         stage.setMinHeight(1080);
         stage.setMinWidth(1440);
