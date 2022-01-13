@@ -70,6 +70,15 @@ public class App extends Application {
     }
 
     public static void loadFood(){
+
+        addSpeisenFromScanner("src/main/resources/org.textfiles/Hauptspeisen.txt", hauptspeisenListe);
+        addSpeisenFromScanner("src/main/resources/org.textfiles/Vorspeisen.txt", vorspeisenListe);
+        addSpeisenFromScanner("src/main/resources/org.textfiles/Nachspeisen.txt", nachspeisenListe);
+        addGetraenkeFromScanner("src/main/resources/org.textfiles/Alkoholfrei.txt",alkoholfreiListe);
+        addGetraenkeFromScanner("src/main/resources/org.textfiles/Alkoholisch.txt",alkoholListe);
+        addGetraenkeFromScanner("src/main/resources/org.textfiles/Kaffee.txt",kaffeeListe);
+
+        /*
         try (Scanner scanner = new Scanner(new File("src/main/resources/org.textfiles/Hauptspeisen.txt"))) {
             while (scanner.hasNext()){
                 String speise = scanner.next();
@@ -137,6 +146,8 @@ public class App extends Application {
         }
         //System.out.println(kaffeeListe);
         //System.out.println(Speisen.speisenListe);
+        */
+
     }
 
     public static void initClock(TextField textField) {
@@ -147,4 +158,28 @@ public class App extends Application {
         clock.setCycleCount(Animation.INDEFINITE);
         clock.play();
     }
+    public static void addGetraenkeFromScanner(String path, ArrayList list){
+        try (Scanner scanner = new Scanner(new File(path))) {
+            while (scanner.hasNext()){
+                String getraenk = scanner.next();
+                list.add(getraenk);
+                Getraenke.createGetraenkeList(getraenk);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public static void addSpeisenFromScanner(String path, ArrayList list){
+        try (Scanner scanner = new Scanner(new File(path))) {
+            while (scanner.hasNext()){
+                String speise = scanner.next();
+                list.add(speise);
+                //System.out.println(scanner.next());
+                Speisen.createSpeisenList(speise);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 }
