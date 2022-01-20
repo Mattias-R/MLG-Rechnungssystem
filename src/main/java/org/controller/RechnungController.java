@@ -1,8 +1,7 @@
 package org.controller;
 
-import com.itextpdf.text.Document;
-import com.itextpdf.text.DocumentException;
-import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.*;
+import com.itextpdf.text.pdf.BaseFont;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
@@ -70,27 +69,43 @@ public class RechnungController {
         Document pdfdoc= new Document();
         PdfWriter writer = PdfWriter.getInstance(pdfdoc, new FileOutputStream("C:\\Users\\public\\Rechnungsnummer" + Rechnungsnummer + ".pdf"));
         pdfdoc.open();
-        pdfdoc.add(new Paragraph("you have to pay " + umsatzID.getText() ));
-        pdfdoc.add(new Paragraph("Now it is " + datumZeit.getText() ));
-        int i = 0;
+        //styling for the pdf
+        Paragraph paragraph1 = new Paragraph();
+        Paragraph paragraph2 = new Paragraph();
+        paragraph1.setAlignment(Element.ALIGN_RIGHT);
+        paragraph2.setAlignment(Element.ALIGN_CENTER);
+        paragraph2.setSpacingAfter(5);
+        paragraph2.setIndentationLeft(20);
+        paragraph2.setIndentationRight(20);
+        paragraph2.setTabSettings(new TabSettings(56f));
+        //text of the pdf starts here
+        paragraph1.add(new Paragraph("Date: " + datumZeit.getText() ));
+        pdfdoc.add(paragraph1);
+        Font f=new Font(Font.FontFamily.HELVETICA,40.0f, Font.UNDERLINE, BaseColor.LIGHT_GRAY);
+        pdfdoc.add(new Paragraph("Rechnungsnummer " + Rechnungsnummer,f));
+        pdfdoc.add(Chunk.TABBING);
+        pdfdoc.add(Chunk.TABBING);
         for (Tisch tisch : Tisch.tischListe) {
             if (tisch.tischnummer == Integer.parseInt(Tisch.ausgewaehlterTisch)) {
-                    for(Entry entry: tisch.data){
-                        pdfdoc.add(new Paragraph("" + entry.anzahl + "x, " + entry.artikel +", inkl. " + entry.USTGB*100 +"% steuer"));
+                    for(Entry entry: Rechnung.rechnung){
+                        paragraph2.add(new Paragraph("" + entry.anzahl + "x, " + entry.artikel +" "+ entry.preis +"€   "+ " inkl. " + entry.USTGB*100 +"% steuer"));
                     }
                     steuerGetraenke = tisch.berechnungGetraenkeSteuer();
                     steuerSpeisen = tisch.berechnungSpeisenSteuer();
                     tisch.data.clear();
+                pdfdoc.add(paragraph2);
                 }
             }
-        pdfdoc.add(new Paragraph("Speisensteuer...." + steuerSpeisen ));
-        pdfdoc.add(new Paragraph("getraenkesteuer.... " + steuerGetraenke ));
+        pdfdoc.add(Chunk.TABBING);
+        pdfdoc.add(new Paragraph("Summe:" + umsatzID.getText() + "€" ));
+        pdfdoc.add(Chunk.TABBING);
+        pdfdoc.add(new Paragraph("Speisensteuer...." + steuerSpeisen + "€"));
+        pdfdoc.add(new Paragraph("getraenkesteuer.... " + steuerGetraenke + "€"));
         System.out.println("PDF created");
         Rechnungsnummer++;
         file.createNewFile();
         BufferedWriter fileWriter = new BufferedWriter(new FileWriter(file));
         fileWriter.write("" + Rechnungsnummer);
-
         fileWriter.close();
         reader.close();
         pdfdoc.close();

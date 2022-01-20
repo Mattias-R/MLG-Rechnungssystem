@@ -1,2 +1,0 @@
-lukas stinkt
-Goran auch

@@ -13,4 +13,5 @@ Eiernockerl;9,90
 Käsespätzle;10,90
 Backhendlsalat;11,90
 Hühnerstreifensalat;11,90
+Salat;5,90
 

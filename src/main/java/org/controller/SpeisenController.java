@@ -315,6 +315,10 @@ public class SpeisenController {
         }
     }
 
+    public void checkforSpeisenElement(){
+
+    }
+
     public void speisenZuTischHinzufuegen() {
         int anzahl = Integer.parseInt(speisenAnzahl.getText());
         for (Tisch tisch : Tisch.tischListe) {
@@ -323,6 +327,7 @@ public class SpeisenController {
                     if (speisenEingabe.getText().equals(speise.name)) {
                         tisch.artikelHinzufuegen(speise, anzahl);
                         tisch.showKonsumation();
+
                         tisch.addToTableView(speisenAnzeigeTafel, speise, anzahl, 0.1);
                     }
                 }
