@@ -4,6 +4,7 @@ import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.BaseFont;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -12,6 +13,8 @@ import org.klassen.Entry;
 import org.klassen.Rechnung;
 import org.klassen.Tisch;
 import com.itextpdf.text.pdf.PdfWriter;
+
+import javax.swing.*;
 import java.io.*;
 import java.io.IOException;
 
@@ -26,6 +29,7 @@ public class RechnungController {
     public static File file = new File("src/main/resources/org.textfiles/Rechnungsnummer.txt");
     public static int Rechnungsnummer;
     public TextField umsatzID;
+
 
 
     public void initialize(){
@@ -61,6 +65,19 @@ public class RechnungController {
         App.setRoot("tisch");
     }
     @FXML
+    private void abfrage(){
+        int dialogButton = JOptionPane.YES_NO_OPTION;
+        int dialogResult = JOptionPane.showConfirmDialog (null, "Would You Like to Save your Previous Note First?","Warning",dialogButton);
+        if(dialogResult == JOptionPane.YES_OPTION){
+            try {
+                alsPDFSpeichern();
+            }catch (Exception e){
+
+            }
+        }
+    }
+
+
     private void alsPDFSpeichern() throws IOException, DocumentException {
         BufferedReader reader = new BufferedReader(new FileReader(file));
         Rechnungsnummer = Integer.parseInt(reader.readLine());
@@ -93,6 +110,7 @@ public class RechnungController {
                     steuerGetraenke = tisch.berechnungGetraenkeSteuer();
                     steuerSpeisen = tisch.berechnungSpeisenSteuer();
                     tisch.data.clear();
+                    Rechnung.rechnung.clear();
                 pdfdoc.add(paragraph2);
                 }
             }
@@ -109,5 +127,6 @@ public class RechnungController {
         fileWriter.close();
         reader.close();
         pdfdoc.close();
+        App.setRoot("tisch");
     }
 }
