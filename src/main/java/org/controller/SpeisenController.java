@@ -1,5 +1,6 @@
 package org.controller;
 
+import java.awt.*;
 import java.io.IOException;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -9,10 +10,13 @@ import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Paint;
 import org.klassen.Entry;
 import org.klassen.Speisen;
 import org.klassen.Tisch;
@@ -57,6 +61,12 @@ public class SpeisenController {
                     //set button text
                     int param = App.hauptspeisenListe.get(counter).toString().indexOf(";");
                     button.setText(App.hauptspeisenListe.get(counter).toString().replace(".", " ").substring(0, param));
+
+                    String[] stringArray = App.hauptspeisenListe.get(counter).split(";");
+                    String farbe = stringArray[2];
+
+                    button.setStyle("-fx-border-color: Black; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-color: " + farbe );
+
                     /**
                      *
                      */
@@ -120,6 +130,11 @@ public class SpeisenController {
                     int param = App.vorspeisenListe.get(counter).toString().indexOf(";");
                     button.setText(App.vorspeisenListe.get(counter).toString().replace(".", " ").substring(0, param));
 
+                    String[] stringArray = App.vorspeisenListe.get(counter).split(";");
+                    String farbe = stringArray[2];
+
+                    button.setStyle("-fx-border-color: Black; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-color: " + farbe );
+
                     //button functions
                     button.setOnAction(new EventHandler<ActionEvent>() {
                         @Override
@@ -182,6 +197,11 @@ public class SpeisenController {
                     int param = App.hauptspeisenListe.get(counter).toString().indexOf(";");
                     button.setText(App.hauptspeisenListe.get(counter).toString().replace(".", " ").substring(0, param));
 
+                    String[] stringArray = App.hauptspeisenListe.get(counter).split(";");
+                    String farbe = stringArray[2];
+
+                    button.setStyle("-fx-border-color: Black; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-color: " + farbe );
+
                     //button functions
                     button.setOnAction(new EventHandler<ActionEvent>() {
                         @Override
@@ -243,6 +263,11 @@ public class SpeisenController {
                     //set button text
                     int param = App.nachspeisenListe.get(counter).toString().indexOf(";");
                     button.setText(App.nachspeisenListe.get(counter).toString().replace(".", " ").substring(0, param));
+
+                    String[] stringArray = App.nachspeisenListe.get(counter).split(";");
+                    String farbe = stringArray[2];
+
+                    button.setStyle("-fx-border-color: Black; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-color: " + farbe );
 
                     //button functions
                     button.setOnAction(new EventHandler<ActionEvent>() {
@@ -315,10 +340,6 @@ public class SpeisenController {
         }
     }
 
-    public void checkforSpeisenElement(){
-
-    }
-
     public void speisenZuTischHinzufuegen() {
         int anzahl = Integer.parseInt(speisenAnzahl.getText());
         for (Tisch tisch : Tisch.tischListe) {
@@ -327,7 +348,6 @@ public class SpeisenController {
                     if (speisenEingabe.getText().equals(speise.name)) {
                         tisch.artikelHinzufuegen(speise, anzahl);
                         tisch.showKonsumation();
-
                         tisch.addToTableView(speisenAnzeigeTafel, speise, anzahl, 0.1);
                     }
                 }

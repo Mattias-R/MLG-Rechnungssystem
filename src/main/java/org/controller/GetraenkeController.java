@@ -55,7 +55,13 @@ public class GetraenkeController {
                 try {
                     //set button text
                     int param = App.alkoholfreiListe.get(counter).toString().indexOf(";");
+                    App.alkoholfreiListe.get(counter).replaceFirst(";", " ");
                     button.setText(App.alkoholfreiListe.get(counter).toString().replace(".", " ").substring(0, param));
+
+                    String[] stringArray = App.alkoholfreiListe.get(counter).split(";");
+                    String farbe = stringArray[3];
+
+                    button.setStyle("-fx-font-weight: bold; -fx-text-fill: white; -fx-border-color: Black; -fx-background-color: " + farbe);
 
                     //button functions
                     button.setOnAction(new EventHandler<ActionEvent>() {
@@ -121,6 +127,11 @@ public class GetraenkeController {
                     int param = App.alkoholfreiListe.get(counter).toString().indexOf(";");
                     button.setText(App.alkoholfreiListe.get(counter).toString().replace(".", " ").substring(0, param));
 
+                    String[] stringArray = App.alkoholfreiListe.get(counter).split(";");
+                    String farbe = stringArray[3];
+
+                    button.setStyle("-fx-font-weight: bold; -fx-text-fill: white; -fx-border-color: Black; -fx-background-color: " + farbe);
+
                     //button functions
                     button.setOnAction(new EventHandler<ActionEvent>() {
                         @Override
@@ -184,6 +195,10 @@ public class GetraenkeController {
                     int param = App.alkoholListe.get(counter).toString().indexOf(";");
                     button.setText(App.alkoholListe.get(counter).toString().replace(".", " ").substring(0, param));
 
+                    String[] stringArray = App.alkoholListe.get(counter).split(";");
+                    String farbe = stringArray[3];
+
+                    button.setStyle("-fx-font-weight: bold; -fx-text-fill: white; -fx-border-color: Black; -fx-background-color: " + farbe);
                     //button functions
                     button.setOnAction(new EventHandler<ActionEvent>() {
                         @Override
@@ -245,6 +260,11 @@ public class GetraenkeController {
                     //set button text
                     int param = App.kaffeeListe.get(counter).toString().indexOf(";");
                     button.setText(App.kaffeeListe.get(counter).toString().replace(".", " ").substring(0, param));
+
+                    String[] stringArray = App.kaffeeListe.get(counter).split(";");
+                    String farbe = stringArray[4];
+
+                    button.setStyle("-fx-font-weight: bold; -fx-text-fill: white; -fx-border-color: Black; -fx-background-color: " + farbe);
 
                     //button functions
                     button.setOnAction(new EventHandler<ActionEvent>() {
