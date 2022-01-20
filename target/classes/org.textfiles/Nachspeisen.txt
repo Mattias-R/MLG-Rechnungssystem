@@ -1,4 +1,4 @@
-Schokokuchen;6,90
-Palatschinken;4,90
-Tiramisu;4,90
-gemischtes.Eis;4,90
+Schokokuchen;6,90;Brown
+Palatschinken;4,90;EEC900
+Tiramisu;4,90;#CD2626
+gemischtes.Eis;4,90;#436EEE
