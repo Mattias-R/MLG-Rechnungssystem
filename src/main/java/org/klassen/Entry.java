@@ -42,6 +42,7 @@ public class Entry {
     public double getPreis() {
         return preis;
     }
+
     public static void addItemToList(ObservableList data, int anzahl, String artikel, double preis, double USTGB){
         data.add(new Entry(anzahl, artikel, preis, USTGB));
     }
