@@ -67,7 +67,7 @@ public class RechnungController {
     @FXML
     private void abfrage(){
         int dialogButton = JOptionPane.YES_NO_OPTION;
-        int dialogResult = JOptionPane.showConfirmDialog (null, "Would You Like to Save your Previous Note First?","Warning",dialogButton);
+        int dialogResult = JOptionPane.showConfirmDialog (null, "Wollen Sie eine Rechnung erstellen?","Warnung",dialogButton);
         if(dialogResult == JOptionPane.YES_OPTION){
             try {
                 alsPDFSpeichern();
@@ -96,7 +96,7 @@ public class RechnungController {
         paragraph2.setIndentationRight(20);
         paragraph2.setTabSettings(new TabSettings(56f));
         //text of the pdf starts here
-        paragraph1.add(new Paragraph("Date: " + datumZeit.getText() ));
+        paragraph1.add(new Paragraph("Datum: " + datumZeit.getText() ));
         pdfdoc.add(paragraph1);
         Font f=new Font(Font.FontFamily.HELVETICA,40.0f, Font.UNDERLINE, BaseColor.LIGHT_GRAY);
         pdfdoc.add(new Paragraph("Rechnungsnummer " + Rechnungsnummer,f));
