@@ -4,27 +4,21 @@ import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import org.klassen.Getraenke;
+import org.klassen.Mitarbeiter;
 import org.klassen.Speisen;
-import org.klassen.Tisch;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -37,17 +31,18 @@ public class App extends Application {
     public static ArrayList<String> alkoholfreiListe = new ArrayList();
     public static ArrayList<String> alkoholListe = new ArrayList();
     public static ArrayList<String> kaffeeListe = new ArrayList();
+    public static ArrayList<String> mitarbeiterListe = new ArrayList();
     private static Scene scene;
 
     // set minimum window to 1440x1080
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("tisch"), 1440, 1080);
+        scene = new Scene(loadFXML("primary"), 1440, 1080);
         stage.setMaximized(true);
         stage.setMinHeight(1080);
         stage.setMinWidth(1440);
         stage.setScene(scene);
-        loadFood();
+        loadFoodAndEmployees();
         stage.show();
 
     }
@@ -69,14 +64,15 @@ public class App extends Application {
         launch();
     }
 
-    public static void loadFood(){
+    public static void loadFoodAndEmployees(){
 
         addSpeisenFromScanner("src/main/resources/org.textfiles/Hauptspeisen.txt", hauptspeisenListe);
         addSpeisenFromScanner("src/main/resources/org.textfiles/Vorspeisen.txt", vorspeisenListe);
         addSpeisenFromScanner("src/main/resources/org.textfiles/Nachspeisen.txt", nachspeisenListe);
-        addGetraenkeFromScanner("src/main/resources/org.textfiles/Alkoholfrei.txt",alkoholfreiListe);
-        addGetraenkeFromScanner("src/main/resources/org.textfiles/Alkoholisch.txt",alkoholListe);
-        addGetraenkeFromScanner("src/main/resources/org.textfiles/Kaffee.txt",kaffeeListe);
+        addGetraenkeFromScanner("src/main/resources/org.textfiles/Alkoholfrei.txt", alkoholfreiListe);
+        addGetraenkeFromScanner("src/main/resources/org.textfiles/Alkoholisch.txt", alkoholListe);
+        addGetraenkeFromScanner("src/main/resources/org.textfiles/Kaffee.txt", kaffeeListe);
+        addMitarbeiterFromScanner("src/main/resources/org.textfiles/Mitarbeiter.txt", mitarbeiterListe);
     }
 
     public static void initClock(TextField textField) {
@@ -93,6 +89,17 @@ public class App extends Application {
                 String getraenk = scanner.next();
                 list.add(getraenk);
                 Getraenke.createGetraenkeList(getraenk);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public static void addMitarbeiterFromScanner(String path, ArrayList list){
+        try (Scanner scanner = new Scanner(new File(path))) {
+            while (scanner.hasNext()){
+                String mitarbeiter = scanner.next();
+                list.add(mitarbeiter);
+                Mitarbeiter.createMitarbeiterList(mitarbeiter);
             }
         } catch (Exception e) {
             e.printStackTrace();

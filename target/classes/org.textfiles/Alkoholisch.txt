@@ -11,3 +11,4 @@
 0,25.Roter.Spritzer;2,90;true;#CD3700
 0,5.Roter.Spritzer;4,90;true;#CD3700
 Schnapps;2,90;true;Brown
+Schnapps;2,90;true;green

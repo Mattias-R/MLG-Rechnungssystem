@@ -23,7 +23,7 @@ public class Chef extends Person{
     }
 
     public void mitarbeiterAnlegen(String name, int mitarbeiternummer) {
-        Mitarbeiter neuerMitarbeiter = new Mitarbeiter(name, mitarbeiternummer);
+        Mitarbeiter neuerMitarbeiter = new Mitarbeiter(mitarbeiternummer, name, "xxxxx");
 
         mitarbeiterliste.add(neuerMitarbeiter);
     }

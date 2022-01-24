@@ -105,7 +105,7 @@ public class RechnungController {
         for (Tisch tisch : Tisch.tischListe) {
             if (tisch.tischnummer == Integer.parseInt(Tisch.ausgewaehlterTisch)) {
                     for(Entry entry: Rechnung.rechnung){
-                        paragraph2.add(new Paragraph("" + entry.anzahl + "x, " + entry.artikel +" "+ entry.preis +"€   "+ " inkl. " + entry.USTGB*100 +"% steuer"));
+                        paragraph2.add(new Paragraph("" + entry.anzahl + "x, " + entry.artikel +" "+ entry.preis +"€   "+ " inkl. " + entry.USTGB*100 +"% Steuer"));
                     }
                     steuerGetraenke = tisch.berechnungGetraenkeSteuer();
                     steuerSpeisen = tisch.berechnungSpeisenSteuer();
@@ -118,7 +118,7 @@ public class RechnungController {
         pdfdoc.add(new Paragraph("Summe:" + umsatzID.getText() + "€" ));
         pdfdoc.add(Chunk.TABBING);
         pdfdoc.add(new Paragraph("Speisensteuer...." + steuerSpeisen + "€"));
-        pdfdoc.add(new Paragraph("getraenkesteuer.... " + steuerGetraenke + "€"));
+        pdfdoc.add(new Paragraph("Getraenkesteuer.... " + steuerGetraenke + "€"));
         System.out.println("PDF created");
         Rechnungsnummer++;
         file.createNewFile();
